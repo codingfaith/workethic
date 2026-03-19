@@ -1,0 +1,82 @@
+#register {
+    padding: 0.5em;
+    color: #ffffff;
+    border-radius: 10px;
+    background: #4c5582;
+}
+.contact-details,
+.contact-container {
+    display: flex;
+}
+.contact-details {
+    gap: 1em;
+    flex-grow: 1;
+    padding: 1em;
+    color: #ffffff;
+    flex-direction: column;
+}
+.contact-container,
+#contact-landing-container {
+    background: #c7beb7;
+}
+.contact-container img {
+    width:100%;
+    height: auto;
+    max-width: 250px;
+    overflow: hidden;
+    border-bottom-right-radius: 10px; 
+}
+input,
+button,textarea {
+    border: none;
+    outline: none;
+    font-size: medium;
+    font-family: inherit;   
+}
+textarea {
+    resize: none;
+    height: 100px;
+}
+.contact-container span {
+    text-align: center;
+}
+button {
+    cursor: pointer;
+    color: #12222f;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px 1px gray;   
+}
+button:hover {
+    color: skyblue;
+}
+.hidden {
+  position: absolute;
+  left: -9999px;
+}
+@media screen and (max-width: 768px) {
+    .contact-container img {
+        display: none;
+    }
+    .contact-details {
+        width: 100%;
+    }
+    .contact-container {
+        padding: 0.5em;
+    }
+}
+@media screen and (max-width: 400px) {
+    input,
+    button,textarea,
+    .contact-container p {
+        font-size: small;
+    }
+    .contact-container p {
+        margin: 0;
+    }
+    .contact-details {
+        height: auto;
+    }
+    textarea {
+        height: 80px;
+    }
+}

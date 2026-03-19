@@ -1,0 +1,149 @@
+/* landing */
+* {
+    box-sizing: border-box;
+}
+body { 
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    font-size: larger; 
+    font-family: "Poppins", sans-serif;
+}
+.heading {
+    gap: 10px;
+    display: flex;
+    padding: 0.5em;
+    align-items: center;
+    background: #ffffff;
+    justify-content: space-between;
+}
+.logo {
+    max-width: 150px;
+}
+.ubuntu-logo p {
+    font-size: 3rem;
+    color: #ffffff;
+    font-weight: bold;
+    align-self: center;
+}
+p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+.ubuntu-text p {
+    margin: 0;
+    color: #4c5582;
+    font-weight: bold;
+    font-size: x-large;
+}
+.landing-container {
+    margin: auto;
+    min-height: 100vh;
+    max-width: 800px;
+    background: #4c5582;
+    box-shadow: 1px 1px 2px 2px #ccc;
+}
+.landing-container h1 {
+    margin: 0;
+}
+.assessment,
+.admin-assessment {
+    padding: 1em;
+    color: #ffffff;
+}
+.assessment h1 {
+    font-size: xx-large
+}
+.redirect, 
+.assessment p {
+    font-size: larger;
+}
+.highlight {
+    color: skyblue;
+}
+.assessment a {
+    width: 100%;
+    padding: 10px;
+    display: block;
+    cursor: pointer;
+    color: #4c5582;
+    text-align: center;
+    border-radius: 10px;
+    text-decoration: none;
+    background: #ffffff;   
+}
+#read-more {
+    padding: 0;
+    color: skyblue;
+    text-align: left;
+    width: fit-content;
+    font-style: italic;
+    padding-bottom: 10px;
+    background: transparent; 
+    text-decoration:underline; 
+}
+.assessment a:hover {
+    color: #ffffff;
+    background:	skyblue;  
+}
+nav {
+    display: flex;
+    background: #ffffff;
+    padding-bottom: 0.5em;
+    justify-content: space-around;
+}
+nav a {
+    cursor: pointer;
+    color: #808080;
+    font-size: medium;
+    text-decoration: none;
+}
+nav a:hover {
+    color: #4c5582;
+    text-decoration: underline;
+}
+#downloadReportBtn {
+    width: 100%; 
+    border: none;
+    outline: none;
+    padding: 10px;
+    margin: 10px 0;   
+    cursor: pointer;
+    color:#4c5582;  
+    font-size: large;
+    border-radius: 5px;
+    background:#ffffff;  
+}
+#downloadReportBtn:hover {
+  color: #ffffff;
+  background: skyblue;
+}
+
+@media screen and (max-width: 541px) {
+    .assessment h1 {
+        font-size: x-large;
+    }
+    .ubuntu-text span {
+        font-size: smaller;
+    }
+    .redirect, 
+    .assessment p,
+    .admin-user-card p,
+    .attempts-list span {
+        font-size: large;
+    }
+    .assessment {
+        font-size: medium;
+    }
+}
+
+@media screen and (max-width: 355px) {
+    .assessment p,
+    .admin-user-card p,
+    .attempts-list span {
+        font-size: medium;
+    }
+    .assessment {
+        font-size: small;
+    }
+}

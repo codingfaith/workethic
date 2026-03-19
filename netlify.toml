@@ -1,0 +1,45 @@
+[build]
+  command = "cd client && npm install && npm run build"
+  publish = "client/dist"
+  functions = "netlify/functions"
+
+[[redirects]]
+  from = "/dashboard"
+  to = "/dashboard.html"
+  status = 200  
+
+[[redirects]]
+  from = "/about"
+  to = "/about.html"
+  status = 200  
+
+[[redirects]]
+  from = "/auth"
+  to = "/auth.html"
+  status = 200
+
+ [[redirects]]
+  from = "/pay"
+  to = "/payment.html"
+  status = 200 
+ 
+[[redirects]]
+  from = "/quiz"
+  to = "/quiz.html"
+  status = 200 
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+  status = 200
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

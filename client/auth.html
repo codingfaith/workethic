@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>auth</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="auth.css">
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+</head>
+<body>
+    <div class="landing-container" id="form-auth-container">
+        <div class="heading">
+            <img src="Plus94_logo2.png" alt="company logo" class="logo">
+            <div class="ubuntu-text">
+                <p>Ubuntex Index</p>
+                <span>Measuring Ubuntu in Society</span>
+            </div>
+        </div>
+        <nav>
+            <a href="./index">Home</a>
+            <a href="./about">About</a>
+            <a href="./contact">Contact</a>
+        </nav>
+        <div id="auth-container" class="form">
+            <div id="login-form">
+                <h2>Ubuntex Index Login</h2>  
+                <input type="email" id="login-email" placeholder="Email" required>
+                <input type="password" id="login-password" placeholder="Password" required>
+                <button id="login-btn">
+                    <span class="button-text">Login</span>
+                    <span class="loading-spinner" style="display:none;">
+                        <svg class="spinner" viewBox="0 0 50 50" style="width:20px;height:20px;">
+                        <circle cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+                        </svg>
+                    </span>
+                </button>
+                <p>Don't have an account? <button id="show-signup">Sign up</button></p>
+            </div>
+            <div id="signup-form" class="form" style="display:none;">
+                <h2>Ubuntex Index Sign-up</h2>  
+                <input type="text" id="signup-firstname" placeholder="First Name" required>
+                <input type="text" id="signup-lastname" placeholder="Last Name" required>
+                <input type="email" id="signup-email" placeholder="Email" required>
+                <input type="password" id="signup-password" placeholder="Password" required>
+                <button id="signup-btn">
+                    <span class="button-text">Sign up</span>
+                    <span class="loading-spinner" style="display:none;">
+                        <svg class="spinner" viewBox="0 0 50 50" style="width:20px;height:20px;">
+                        <circle cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+                        </svg>
+                    </span>
+                </button>
+                <p>Already have an account? <button id="show-login">Login</button></p>
+            </div>
+        </div>
+        <div id="auth-error" class="logout-message"></div>
+    </div>
+    <script src="auth.js" type="module" defer></script>
+</body>
+</html>
