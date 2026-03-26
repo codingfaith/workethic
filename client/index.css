@@ -110,7 +110,8 @@ nav a {
     text-decoration: none;
 }
 nav a:hover, 
-nav a:active{
+nav a:active,
+nav a:focus {
     color: #fbb440;
     text-decoration: underline;
 }
