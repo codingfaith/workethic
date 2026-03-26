@@ -43,13 +43,14 @@ p {
     background-size: cover;
     background-repeat: no-repeat;
     box-shadow: 1px 1px 2px 2px #ccc;
-    background-image: url("home-bg.png");
+    background-image: url("signin-background.png");
 }
 #home-container {
     padding: 1em;
+    color: #8551b6;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    background-color: rgba(133, 81, 182, 0.2);
+    background-color: rgba(255, 255, 255, 0.9);
 }
 .landing-container h1 {
     margin: 0;
@@ -68,7 +69,6 @@ p {
 }
 .highlight {
     color: #fbb440;
-    text-shadow: 1px 1px #999999;
 }
 .assessment a {
     margin: auto;
@@ -80,12 +80,14 @@ p {
     text-align: center;
     border-radius: 10px;
     text-decoration: none;
-    background: #8551b6; 
+    background: #8551b6;
+    box-shadow: 1px 1px 3px 1px #352048; 
 }
 #read-more {
     padding: 0;
     color: #fbb440;
     text-align: left;
+    box-shadow: none;
     width: fit-content;
     font-style: italic;
     padding-bottom: 10px;
