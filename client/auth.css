@@ -5,9 +5,11 @@
 }
 #auth-container {
     margin: auto;
+    color: #8551b6;
     margin-top: 15px;
     max-width: 400px;
     border-radius: 10px;
+    margin-bottom: 15px;
     background: #ffffff;
 }
 #form-auth-container {
@@ -59,17 +61,6 @@ input {
     background: transparent;
     text-decoration: underline;
 }
-
-/* button {
-
-    color: #ffffff;
-    cursor: pointer;
-    background: #8551b6;
-    box-shadow: 1px 1px 1px 1px #ccc;   
-}
-button:hover {
-    background: #fbb440;
-} */
 #login-btn:hover,
 #signup-btn:hover {
     border: none;
