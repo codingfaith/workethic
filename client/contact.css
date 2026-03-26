@@ -15,39 +15,44 @@
     color: #ffffff;
     flex-direction: column;
 }
-.contact-container,
+
 #contact-landing-container {
-    background: #c7beb7;
+   background-image: url("signin-background.png");
 }
-.contact-container img {
-    width:100%;
-    height: auto;
-    max-width: 250px;
-    overflow: hidden;
-    border-bottom-right-radius: 10px; 
+.contact-container {
+    margin: auto;
+    margin-top: 15px;
+    max-width: 400px;
+    border-radius: 10px;
+    background: #ffffff;
 }
+
 input,
 button,textarea {
-    border: none;
+    padding: 5px;
     outline: none;
     font-size: medium;
-    font-family: inherit;   
+    border-radius: 5px;
+    font-family: inherit; 
+    border: 1px solid #808080;  
 }
 textarea {
     resize: none;
     height: 100px;
 }
 .contact-container span {
+    color: #8551b6;
     text-align: center;
 }
 button {
+    border: none;
+    color: #ffffff;
     cursor: pointer;
-    color: #12222f;
-    border-radius: 10px;
-    box-shadow: 1px 1px 1px 1px gray;   
+    background: #8551b6;
+    box-shadow: 1px 1px 1px 1px #ccc;   
 }
 button:hover {
-    color: skyblue;
+    background: #fbb440;
 }
 .hidden {
   position: absolute;

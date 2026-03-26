@@ -4,7 +4,17 @@
     padding: 1em;
 }
 #auth-container {
-    color: #ffffff;
+    margin: auto;
+    margin-top: 15px;
+    max-width: 400px;
+    border-radius: 10px;
+    background: #ffffff;
+}
+#form-auth-container {
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 1px 1px 2px 2px #ccc;
+    background-image: url("signin-background.png");
 }
 #auth-container h2 {
     margin: 0;
@@ -20,39 +30,55 @@
 input,
 #login-btn,
 #signup-btn {
-    border: none;
     outline: none;
     padding: 0.5em;
     font-size: medium;
     font-family: inherit;
 }
+input {
+    border: 1px solid #808080;  
+}
 #login-btn,
 #signup-btn {
+    border: none;
     cursor: pointer;
-    color: #4c5582;
+    color: #ffffff;
     font-weight: 500;
     border-radius: 10px;
+    background: #8551b6;
     box-shadow: 1px 1px 1px 1px gainsboro;   
 }
 #show-login,
 #show-signup {
     outline:none;
     border: none;
-    color: aqua;
     cursor: pointer;
     font-size: large;
+    color:  #8551b6;
     font-family: inherit;
     background: transparent;
     text-decoration: underline;
 }
+
+/* button {
+
+    color: #ffffff;
+    cursor: pointer;
+    background: #8551b6;
+    box-shadow: 1px 1px 1px 1px #ccc;   
+}
+button:hover {
+    background: #fbb440;
+} */
 #login-btn:hover,
 #signup-btn:hover {
+    border: none;
     color: #ffffff;
-    background: skyblue;
+    background: #fbb440;
 }
  #show-login:hover,
 #show-signup:hover {
-    color: skyblue;
+    color: #fbb440;
 }
 #auth-error {
     width: 100%;

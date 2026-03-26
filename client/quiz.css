@@ -10,7 +10,11 @@ body {
 }
 header h1 {
     font-size: 2rem;
+    color: #8551b6;
     text-align: center;
+}
+#progress-text {
+    color: #fbb440;
 }
 .logo {
     max-width: 150px;
