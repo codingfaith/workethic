@@ -1,7 +1,7 @@
 
 import { initializeFirebase } from './auth.js';
 
-const totalQuestions = 44;
+const totalQuestions = 24;
 const progress = document.getElementById("progress");
 const progressText = document.getElementById("progress-text");
 
@@ -10,34 +10,28 @@ class UbuntexIndex {
         this.questions = [
             {
                 // empathy
-                text: "In general, when is it right to consider the needs of others?", //1
+                text: "When starting a new task, I usually:", //1
                 type: "multiple-choice",
                 choices: {
-                    A: ["Only after mine are met", 2],
-                    B: ["Before mine are met", 8],
-                    C: ["Together with mine", 5],
-                    D: ["It's not important to consider the needs of others", 1]
+                    A: ["Spend time planning before beginning", 2],
+                    B: ["Start quickly and adjust as I go", 8],
                 },
                 type: "multiple-choice",
                 category: "empathy"
             },{
-                text: "Do you feel that others care about your needs in general?", //2
+                text: "I feel most satisfied when:", //2
                 type: "multiple-choice",
                 choices: {
-                    A: ["Only after theirs are met", 6],
-                    B: ["Yes, above their own", 4],
-                    C: ["Yes, at the same time as their needs", 3],
-                    D: ["Its not important for them to consider my needs", 5]
+                    A: ["I complete something thoroughly", 6],
+                    B: ["I make significant progress quickly", 4],
                 },
                 type: "multiple-choice",
                 category: "empathy"
             },{
-                text: "Who in your opinion is to blame for the bad things that you face from time to time?", //3
+                text: "When given instructions, I prefer to:", //3
                 choices: {
-                    A: ["Others are usually to blame ", 1],
-                    B: ["I am normally the one to blame ", 6],
-                    C: ["A combination of me and others", 4],
-                    D: ["No one is to blame things just happen", 2],
+                    A: ["Follow them closely", 1],
+                    B: ["Adapt them if I see a better way ", 6],
                 },
                 type: "multiple-choice",
                 category: "empathy"
