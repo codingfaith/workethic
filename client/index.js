@@ -9,110 +9,144 @@ class UbuntexIndex {
     constructor() {
         this.questions = [
             {
-                // empathy
                 text: "When starting a new task, I usually:", //1
-                type: "multiple-choice",
                 choices: {
-                    A: ["Spend time planning before beginning", 2],
-                    B: ["Start quickly and adjust as I go", 8],
+                    A: ["Spend time planning before beginning"],
+                    B: ["Start quickly and adjust as I go"],
                 },
-                type: "multiple-choice",
-                category: "empathy"
+                type: "multiple-choice"
             },{
                 text: "I feel most satisfied when:", //2
-                type: "multiple-choice",
                 choices: {
-                    A: ["I complete something thoroughly", 6],
-                    B: ["I make significant progress quickly", 4],
+                    A: ["I complete something thoroughly"],
+                    B: ["I make significant progress quickly"],
                 },
-                type: "multiple-choice",
-                category: "empathy"
+                type: "multiple-choice"
             },{
                 text: "When given instructions, I prefer to:", //3
                 choices: {
-                    A: ["Follow them closely", 1],
-                    B: ["Adapt them if I see a better way ", 6],
+                    A: ["Follow them closely"],
+                    B: ["Adapt them if I see a better way "],
                 },
-                type: "multiple-choice",
-                category: "empathy"
+                type: "multiple-choice"
             },{
-                text: "When comparing your status in life  to that of others around you, where would you like to be?", //4
+                text: " I review my work before submitting it", //4
                 choices: {
-                    A: ["A lot better than others ", 1],
-                    B: ["Better than others", 2],
-                    C: ["Same as others ", 5],
-                    D: ["It does not matter", 7]
+                    A: ["Never "],
+                    B: ["Rarely"],
+                    C: ["Sometimes "],
+                    D: ["Almost Always"]
                 },
-                type: "multiple-choice",
-                category: "empathy"
-            },{ text: "How do you feel about working with others to achieve a common goal?", //5
-                choices: {
-                    A: ["It is not easy to work with others ", 1],
-                    B: ["Its not necessary to work with others ", 3],
-                    C: ["More can be achieved when working with others", 5],
-                    D: ["Working with others is the only way of achieving lasting results ", 7]
-                },
-                type: "multiple-choice",
-                category: "empathy"
-            },{        
-            //ratings
-                text: "On a 10-point scale where 0 means very low and 10 means very high, how would you rate your ability to understand yourself?", //6
-                scale: 10,
-                type: "scale",
-                category: "empathy" //6
-            },{
-                text: "On a 10-point scale where 0 means very low and 10 means very high, how would you rate your ability to understand others in the world?", //7
-                scale: 10,
-                type: "scale",
-                category: "empathy" //7
-            },{
-                text: "On a 10-point scale where 0 means very low and 10 means very high, how would you rate your ability to understand others in your community?", //8
-                scale: 10,
-                type: "scale",
-                category: "empathy" //8
-            },{
-                text: "On a 10-point scale where 0 means very low and 10 means very high, how would you rate your ability to understand others in your country?", //9
-                scale: 10,
-                type: "scale",
-                category: "empathy" //9
-            },{
-                text: "On a 10-point scale where 0 means very low and 10 means very high, how would you rate your ability to understand others in your family?", //10
-                scale: 10,
-                type: "scale",
-                category: "empathy" //10
-            },{
-                text: "Many people today chase status and wealth, even if it means stepping on others. What are your thoughts on this kind of success, and how do you personally define a successful life?",
-                expectations: "Score 0-10 based on humility and community-centered values. 0=individualistic greed, 10=strong communal focus",
-                type: "open-ended",
-                category: "empathy" //11
+                type: "multiple-choice"
             },{ 
-            // respect
-                text: "How important is showing respect to other human beings?", //12
+                text: "I begin tasks ahead of deadlines", //5
                 choices: {
-                    A: ["It depends on who ", 2],
-                    B: ["Everyone needs to be respected", 5],
-                    C: ["Respect is a luxury", 1]
+                    A: ["Never "],
+                    B: ["Rarely"],
+                    C: ["Sometimes "],
+                    D: ["Almost Always"]
                 },
-                type: "multiple-choice",
-                category: "respect"
-            },{
-                text: "How do you feel when someone you don't know is being disrespected?", //13
+                type: "multiple-choice"
+            },{ 
+                text: "I continue working on tasks even when I lose interest", //6
                 choices: {
-                    A: ["It is none of my business, I don't care ", 1],
-                    B: ["I also feel disrespected ", 6],
-                    C: ["I feel bad about our society", 3]
+                    A: ["Never "],
+                    B: ["Rarely"],
+                    C: ["Sometimes "],
+                    D: ["Almost Always"]
                 },
-                type: "multiple-choice",
-                category: "respect"
-            },{
-                text: "What would you consider to be a true sign of showing respect to others?", //14
+                type: "multiple-choice"
+            },{ 
+                text: "I track my own progress without being asked", //7
                 choices: {
-                    A: ["Acting out your respect ", 7],
-                    B: ["Not having negative thoughts about them", 3]
+                    A: ["Never "],
+                    B: ["Rarely"],
+                    C: ["Sometimes "],
+                    D: ["Almost Always"]
                 },
-                type: "multiple-choice",
-                category: "respect"
+                type: "multiple-choice"
+            },{ 
+            //ratings
+            //     text: "On a 10-point scale where 0 means very low and 10 means very high, how would you rate your ability to understand yourself?", //6
+            //     scale: 10,
+            //     type: "scale",
+            //     category: "empathy" //6
+            // },{
+            //     text: "On a 10-point scale where 0 means very low and 10 means very high, how would you rate your ability to understand others in the world?", //7
+            //     scale: 10,
+            //     type: "scale",
+            //     category: "empathy" //7
+            // },{
+            //     text: "On a 10-point scale where 0 means very low and 10 means very high, how would you rate your ability to understand others in your community?", //8
+            //     scale: 10,
+            //     type: "scale",
+            //     category: "empathy" //8
+            // },{
+            //     text: "On a 10-point scale where 0 means very low and 10 means very high, how would you rate your ability to understand others in your country?", //9
+            //     scale: 10,
+            //     type: "scale",
+            //     category: "empathy" //9
+            // },{
+            //     text: "On a 10-point scale where 0 means very low and 10 means very high, how would you rate your ability to understand others in your family?", //10
+            //     scale: 10,
+            //     type: "scale",
+            //     category: "empathy" //10
+            // },{
+            //     text: "Many people today chase status and wealth, even if it means stepping on others. What are your thoughts on this kind of success, and how do you personally define a successful life?",
+            //     expectations: "Score 0-10 based on humility and community-centered values. 0=individualistic greed, 10=strong communal focus",
+            //     type: "open-ended",
+            //     category: "empathy" //11
+            // },{ 
+                text: "If you had limited time, which would you prioritize?", //8
+                choices: {
+                    A: ["Completing all tasks, even if some are imperfect"],
+                    B: ["Ensuring fewer tasks are completed at a high standard"]
+                },
+                type: "multiple-choice"
             },{
+                text: "When facing a difficult task, you are more likely to:", //9
+                choices: {
+                    A: ["Break it into smaller steps and keep going "],
+                    B: ["Pause and return later with a fresh perspective"]
+                },
+                type: "multiple-choice"
+            },{
+                text: "If a deadline seems unrealistic:", //10
+                choices: {
+                    A: ["Start immediately and do what's possible"],
+                    B: ["Reassess and adjust expectations first"]
+                },
+                type: "multiple-choice"
+            },{
+                text: "When a project doesn't go as planned, my first thought is:", //11
+                choices: {
+                    A: ["What could I have done differently"],
+                    B: ["What factors affected the outcome"]
+                },
+                type: "multiple-choice"
+            },{
+                text: "When working in a team, I usually:", //12
+                choices: {
+                    A: ["Focus on my responsibilities"],
+                    B: ["Stay aware of how others are progressing"]
+                },
+                type: "multiple-choice"
+            },{
+                text: "On days when I don't feel motivated:", //13
+                choices: {
+                    A: ["I focus on completing at least key tasks"],
+                    B: ["I adjust my workload to match my energy"]
+                },
+                type: "multiple-choice"
+            },{
+                text: "When a task becomes repetitive:", //14
+                choices: {
+                    A: ["I find ways to stay consistent"],
+                    B: ["I lose focus and switch tasks more often"]
+                },
+                type: "multiple-choice"
+            },{
+                //////////////////////////////////////////////////////////////////////////
                 text: "Rate on a 10-point scale your respect for yourself",
                 scale: 10,
                 type: "scale",
