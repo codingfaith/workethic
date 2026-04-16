@@ -429,10 +429,9 @@ class UbuntexIndex {
         progressText.textContent = `Question ${this.currentIndex + 1} of ${totalQuestions}`;
         
         // Set next button text
-        nextBtn.textContent = this.currentIndex === this.questions.length - 1 
+        nextBtn.textContent = this.currentIndex === totalQuestions - 1
             ? "Submit and See Results" 
             : "Next";
-        //nextBtn.disabled = question.type !== "open-ended"; Disable for non-open-ended until selection
         
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
