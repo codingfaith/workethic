@@ -66,37 +66,6 @@ class UbuntexIndex {
                 },
                 type: "multiple-choice"
             },{ 
-            //ratings
-            //     text: "On a 10-point scale where 0 means very low and 10 means very high, how would you rate your ability to understand yourself?", //6
-            //     scale: 10,
-            //     type: "scale",
-            //     category: "empathy" //6
-            // },{
-            //     text: "On a 10-point scale where 0 means very low and 10 means very high, how would you rate your ability to understand others in the world?", //7
-            //     scale: 10,
-            //     type: "scale",
-            //     category: "empathy" //7
-            // },{
-            //     text: "On a 10-point scale where 0 means very low and 10 means very high, how would you rate your ability to understand others in your community?", //8
-            //     scale: 10,
-            //     type: "scale",
-            //     category: "empathy" //8
-            // },{
-            //     text: "On a 10-point scale where 0 means very low and 10 means very high, how would you rate your ability to understand others in your country?", //9
-            //     scale: 10,
-            //     type: "scale",
-            //     category: "empathy" //9
-            // },{
-            //     text: "On a 10-point scale where 0 means very low and 10 means very high, how would you rate your ability to understand others in your family?", //10
-            //     scale: 10,
-            //     type: "scale",
-            //     category: "empathy" //10
-            // },{
-            //     text: "Many people today chase status and wealth, even if it means stepping on others. What are your thoughts on this kind of success, and how do you personally define a successful life?",
-            //     expectations: "Score 0-10 based on humility and community-centered values. 0=individualistic greed, 10=strong communal focus",
-            //     type: "open-ended",
-            //     category: "empathy" //11
-            // },{ 
                 text: "If you had limited time, which would you prioritize?", //8
                 choices: {
                     A: ["Completing all tasks, even if some are imperfect"],
@@ -186,11 +155,11 @@ class UbuntexIndex {
                 scale: 10,
                 type: "scale"
             },{
-                text: "Rank what matters most in how you work. Completing tasks quickly:", //22
+                text: "Rank what matters most in how you work. Meeting commitments consistently", //22
                 scale: 10,
                 type: "scale"
             },{
-                text: "Rank what matters most in how you work. Completing tasks quickly:", //23
+                text: "Rank what matters most in how you work. Finding better ways to do things", //23
                 scale: 10,
                 type: "scale"
             },{
@@ -310,8 +279,8 @@ class UbuntexIndex {
         const optionsContainer = document.getElementById("options");
         const nextBtn = document.getElementById("next-btn");
         const charCounter = document.getElementById("char-counter");
-        
-        if (this.currentIndex >= this.questions.length) {
+
+        if (this.currentIndex > this.questions.length) {
             this.calculateScore();
             return;
         }
