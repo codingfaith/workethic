@@ -115,7 +115,7 @@ class UbuntexIndex {
                 },
                 type: "multiple-choice"
             },{
-                text: ". After completing a task, I typically:", //15
+                text: "After completing a task, I typically:", //15
                 choices: {
                     A: ["Move on to the next task"],
                     B: ["Think about how it could be improved"]
@@ -280,8 +280,9 @@ class UbuntexIndex {
         const nextBtn = document.getElementById("next-btn");
         const charCounter = document.getElementById("char-counter");
 
-        if (this.currentIndex > this.questions.length) {
-            this.calculateScore();
+        if (this.currentIndex >= totalQuestions) {
+            // this.calculateScore();
+            console.log("Out of questions");
             return;
         }
         
