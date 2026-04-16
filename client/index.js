@@ -424,8 +424,7 @@ class UbuntexIndex {
             };
         }
         // Update progress bar
-        const progressPercentage = (this.currentIndex / totalQuestions) * 100;
-        console.log(`Progress: ${progressPercentage}%`);
+        const progressPercentage = `${this.currentIndex + 1}` / totalQuestions * 100;
         progress.style.width = `${progressPercentage}%`;
         progressText.textContent = `Question ${this.currentIndex + 1} of ${totalQuestions}`;
         
