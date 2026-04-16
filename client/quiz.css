@@ -172,7 +172,7 @@ th, td {
 }
 .active {
     color: #ffffff;
-    background: rgba(25,25,122,0.8);
+    background: #8551b6;
 }
 .storage-notice {
     color: #666;
