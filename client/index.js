@@ -133,7 +133,7 @@ class UbuntexIndex {
                 },
                 type: "multiple-choice"
             },{
-                text: ". A teammate is falling behind and it may affect you. You:", //18
+                text: "A teammate is falling behind and it may affect you. You:", //18
                 choices: {
                     A: ["Focus on ensuring your work is done"],
                     B: ["Step in to help or raise the issue"]
