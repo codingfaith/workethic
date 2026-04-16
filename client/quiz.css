@@ -71,7 +71,7 @@ button {
 .option-button {
     color: #000000;
     text-align: left;
-    background: #8551b6;
+    background: rgba(25,25,122,0.2);
 }
 .option-button:focus,
 .option-button:active{
@@ -172,7 +172,7 @@ th, td {
 }
 .active {
     color: #ffffff;
-    background: #8551b6;
+    background: rgba(25,25,122,0.8);
 }
 .storage-notice {
     color: #666;
