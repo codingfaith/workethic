@@ -71,13 +71,13 @@ button {
 .option-button {
     color: #000000;
     text-align: left;
-    background: rgba(25,25,122,0.2);
+    background: #8551b6;
 }
 .option-button:focus,
 .option-button:active{
     outline: none; 
     color: #ffffff;
-    background: rgba(25,25,122,0.8);
+    background: #8551b6;
 }
 #next-btn {
     min-width: 150px;
@@ -172,7 +172,7 @@ th, td {
 }
 .active {
     color: #ffffff;
-    background: rgba(25,25,122,0.8);
+    background: #8551b6;
 }
 .storage-notice {
     color: #666;
