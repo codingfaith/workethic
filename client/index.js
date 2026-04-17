@@ -23,7 +23,7 @@ class UbuntexIndex {
                     B: ["I make significant progress quickly"],
                 },
                 type: "multiple-choice",
-                expectations: "Look for ."
+                expectations: ""
             },{
                 text: "When given instructions, I prefer to:", //3
                 choices: {
@@ -213,246 +213,171 @@ class UbuntexIndex {
             <p>You have already completed the test on this device.</p>`;
     }
 
-    async fetchScoreFromOpenAI(userResponse, expectations) {
-        const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-        const apiUrl = '/api/openai-proxy';
-        const fallbackScore = 5;
+    // async fetchScoreFromOpenAI(userResponse, expectations) {
+    //     const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    //     const apiUrl = '/api/openai-proxy';
+    //     const fallbackScore = 5;
         
-        // 1. Check connectivity first
-        if (isIOS && !navigator.onLine) {
-            console.warn('iOS offline detected - returning fallback');
-            return fallbackScore;
-        }
+    //     // 1. Check connectivity first
+    //     if (isIOS && !navigator.onLine) {
+    //         console.warn('iOS offline detected - returning fallback');
+    //         return fallbackScore;
+    //     }
 
-        try {
-            const payload = {
-                userResponse: typeof userResponse === 'string' ? userResponse.trim() : '',
-                expectations: typeof expectations === 'string' ? expectations.trim() : ''
-            };
+    //     try {
+    //         const payload = {
+    //             userResponse: typeof userResponse === 'string' ? userResponse.trim() : '',
+    //             expectations: typeof expectations === 'string' ? expectations.trim() : ''
+    //         };
 
-            // 2. Configure with iOS-specific settings
-            const controller = new AbortController();
-            const timeout = setTimeout(() => controller.abort(), isIOS ? 20000 : 10000);
+    //         // 2. Configure with iOS-specific settings
+    //         const controller = new AbortController();
+    //         const timeout = setTimeout(() => controller.abort(), isIOS ? 20000 : 10000);
             
-            const fetchOptions = {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    'X-Device-Type': isIOS ? 'iOS' : 'other'
-                },
-                body: JSON.stringify(payload),
-                signal: controller.signal,
-                cache: 'no-store',
-                keepalive: isIOS // Important for iOS background requests
-            };
+    //         const fetchOptions = {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //                 'Accept': 'application/json',
+    //                 'X-Device-Type': isIOS ? 'iOS' : 'other'
+    //             },
+    //             body: JSON.stringify(payload),
+    //             signal: controller.signal,
+    //             cache: 'no-store',
+    //             keepalive: isIOS // Important for iOS background requests
+    //         };
 
-            // 3. Attempt fetch with offline detection
-            let response;
-            try {
-                response = await fetch(apiUrl, fetchOptions);
-                clearTimeout(timeout);
-            } catch (error) {
-                if (error.name === 'AbortError') {
-                    console.warn('Request timeout');
-                }
-                throw error;
-            }
+    //         // 3. Attempt fetch with offline detection
+    //         let response;
+    //         try {
+    //             response = await fetch(apiUrl, fetchOptions);
+    //             clearTimeout(timeout);
+    //         } catch (error) {
+    //             if (error.name === 'AbortError') {
+    //                 console.warn('Request timeout');
+    //             }
+    //             throw error;
+    //         }
 
-            // 4. Handle successful response
-            if (response.ok) {
-                const data = await response.json();
-                return data?.score ?? fallbackScore;
-            }
+    //         // 4. Handle successful response
+    //         if (response.ok) {
+    //             const data = await response.json();
+    //             return data?.score ?? fallbackScore;
+    //         }
 
-            throw new Error(`HTTP ${response.status}`);
+    //         throw new Error(`HTTP ${response.status}`);
             
-        } catch (error) {
-            console.error('Scoring error:', {
-                error: error.message,
-                type: error.name,
-                isIOS,
-                onlineStatus: navigator.onLine,
-                userAgent: navigator.userAgent,
-                timestamp: new Date().toISOString()
-            });
+    //     } catch (error) {
+    //         console.error('Scoring error:', {
+    //             error: error.message,
+    //             type: error.name,
+    //             isIOS,
+    //             onlineStatus: navigator.onLine,
+    //             userAgent: navigator.userAgent,
+    //             timestamp: new Date().toISOString()
+    //         });
 
-            // 5. Special offline handling
-            if (!navigator.onLine) {
-                // Can implement offline storage here if needed
-                return fallbackScore;
-            }
+    //         // 5. Special offline handling
+    //         if (!navigator.onLine) {
+    //             // Can implement offline storage here if needed
+    //             return fallbackScore;
+    //         }
 
-            // 6. Final fallback for other errors
-            return fallbackScore;
-        }
+    //         // 6. Final fallback for other errors
+    //         return fallbackScore;
+    //     }
+    // }
+
+    async fetchScoreFromOpenAI(userAnswer, expectations) {
+    if (!expectations) {
+        console.warn("No expectations provided for scoring. Using default.");
+        expectations = "Score the response based on how well it demonstrates positive traits, emotional intelligence, or desired behavior. Be fair and consistent.";
     }
+
+    const prompt = `
+You are an expert, fair, and consistent quiz scorer. 
+Your task is to evaluate the user's response to a question and assign a score from 0 to 10.
+
+Scoring Guidelines:
+- 9-10: Excellent / Ideal answer — fully aligns with the expectations, shows strong insight, maturity, or desired qualities.
+- 7-8: Good / Solid answer — mostly aligns, minor gaps or improvements possible.
+- 5-6: Average / Acceptable — partially meets expectations but has clear weaknesses.
+- 3-4: Below Average — limited alignment or notable issues.
+- 0-2: Poor / Misaligned — little to no alignment with expectations, or shows undesirable traits.
+
+Question Context & Expectations:
+${expectations}
+
+User's Response:
+"${userAnswer}"
+
+Instructions:
+1. Carefully compare the user's response against the expectations.
+2. Think step-by-step about strengths and weaknesses.
+3. Assign ONE integer score between 0 and 10.
+4. Provide a short, professional explanation (1–3 sentences) justifying the score.
+
+Respond in valid JSON format only, exactly like this:
+{
+  "score": 8,
+  "explanation": "The response demonstrates good self-awareness and a constructive approach to conflict, though it could mention collaboration more explicitly."
+}
+`;
+
+    try {
+        const response = await fetch("https://api.openai.com/v1/chat/completions", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${this.openAIKey}`   // make sure this is set in your class
+            },
+            body: JSON.stringify({
+                model: "gpt-4o-mini",           // or "gpt-4o" for higher quality
+                messages: [
+                    { role: "system", content: "You are a precise and objective evaluator." },
+                    { role: "user", content: prompt }
+                ],
+                temperature: 0.2,               // low temperature = more consistent scoring
+                max_tokens: 300
+            })
+        });
+
+        const data = await response.json();
+        
+        if (!data.choices || !data.choices[0]) {
+            throw new Error("Invalid response from OpenAI");
+        }
+
+        const content = data.choices[0].message.content.trim();
+        
+        // Parse JSON safely
+        let result;
+        try {
+            result = JSON.parse(content);
+        } catch (e) {
+            // Fallback if model returns extra text
+            const scoreMatch = content.match(/"score":\s*(\d+)/);
+            const score = scoreMatch ? parseInt(scoreMatch[1]) : 5;
+            result = { 
+                score: Math.max(0, Math.min(10, score)), 
+                explanation: "Score extracted from response." 
+            };
+        }
+
+        return result.score;   // Return just the numeric score for your existing logic
+
+    } catch (error) {
+        console.error("OpenAI scoring failed:", error);
+        return 5; // fallback neutral score
+    }
+}
+
 
     startQuiz() {
         this.showQuestion();
     }
 
-    // showQuestion() {
-    //     const questionContainer = document.getElementById("question");
-    //     const optionsContainer = document.getElementById("options");
-    //     const nextBtn = document.getElementById("next-btn");
-    //     const charCounter = document.getElementById("char-counter");
-
-    //     if (this.currentIndex >= totalQuestions) {
-    //         this.calculateScore();
-    //         console.log("Out of questions");
-    //         return;
-    //     }
-        
-    //     const question = this.questions[this.currentIndex];
-    //     questionContainer.textContent = `Question ${this.currentIndex + 1}: ${question.text}`;
-    //     optionsContainer.innerHTML = '';
-       
-    //     // Clear any previous event listeners
-    //     nextBtn.onclick = null;
-    //     this.currentSelectedAnswer = null;
-
-    //     if (question.type === "open-ended") {
-    //         // Open-ended question UI
-    //         optionsContainer.innerHTML = `
-    //             <textarea id="user-response" placeholder="Type your answer..." maxlength="150"></textarea>
-    //         `;
-    //         charCounter.textContent = `0/150 characters`;
-    //         // Add input event listener for character counting
-    //         const textarea = document.getElementById("user-response");
-    //         textarea.addEventListener('input', (e) => {
-    //             const currentLength = e.target.value.length;
-    //             charCounter.textContent = `${currentLength}/150 characters`;
-                
-    //             // Change color when approaching limit
-    //             if (currentLength >= 145) {
-    //                 charCounter.style.color = currentLength === 150 ? '#d32f2f' : '#ff9800';
-    //             } else {
-    //                 charCounter.style.color = '#666';
-    //             }
-    //         });
-
-    //         nextBtn.onclick = async () => {
-    //             const userResponse = textarea.value.trim();
-    //             if (!userResponse) {
-    //                 alert("Please enter your response before proceeding.");
-    //                 return;
-    //             }
-                
-    //             nextBtn.disabled = true;
-    //             nextBtn.textContent = "Scoring...";
-    //             charCounter.innerText = ""
-                
-    //             try {
-    //                 const score = await this.fetchScoreFromOpenAI(userResponse, question.expectations);
-    //                     this.userAnswers.push(score);
-    //                     this.quizResults.responses.push({
-    //                         question: question.text,
-    //                         userAnswer:userResponse,
-    //                     })
-    //                     this.currentIndex++;
-    //                     this.showQuestion();
-    //                 } finally {
-    //                     nextBtn.textContent = this.currentIndex === this.questions.length - 1 
-    //                         ? "Submit and See Results" 
-    //                         : "Next";
-    //                     nextBtn.disabled = false;
-    //             }
-                
-    //         }
-    //     } else if (question.type === "multiple-choice") {
-    //         // Multiple choice question UI
-    //         Object.entries(question.choices).forEach(([key, value]) => {
-    //             const button = document.createElement("button");
-    //             button.textContent = `${key}: ${value[0]}`;
-    //             button.className = "option-button";
-    //             button.onclick = () => {
-    //                 // Remove active class from all buttons
-    //                 document.querySelectorAll('.option-button').forEach(btn => {
-    //                     btn.classList.remove('active');
-    //                 });
-    //                 // Add active class to clicked button
-    //                 button.classList.add('active');
-    //                 this.currentSelectedAnswer = value[1];
-    //                 nextBtn.disabled = false;
-    //             };
-    //             optionsContainer.appendChild(button);
-    //         });
-
-    //         nextBtn.onclick = () => {
-    //             if (this.currentSelectedAnswer === null) {
-    //                 alert("Please select an option before proceeding.");
-    //                 return;
-    //             }
-    //             this.userAnswers.push(this.currentSelectedAnswer);
-    //             this.quizResults.responses.push({
-    //                 question: question.text,
-    //                 userAnswer: Object.entries(question.choices).find(([_, v]) => v[1] === this.currentSelectedAnswer)[1][0]
-    //             });
-    //             this.currentIndex++;
-    //             this.showQuestion();
-    //         };
-
-    //     }else if (question.type === "scale") {
-    //         // Scale question UI
-    //         const sliderContainer = document.createElement("div");
-    //         sliderContainer.className = "slider-container";
-            
-    //         const slider = document.createElement("input");
-    //         slider.type = "range";
-    //         slider.min = "0";
-    //         slider.max = question.scale.toString();
-    //         slider.value = "5";
-    //         slider.step = "1";
-    //         slider.className = "scale-slider";
-            
-    //         const valueDisplay = document.createElement("div");
-    //         valueDisplay.className = "slider-value";
-    //         valueDisplay.innerHTML = `
-    //             Selected: 5 <span class="slider-instruction">(drag slider to change default)</span>`;
-            
-    //         slider.oninput = () => {
-    //             valueDisplay.textContent = `Selected: ${slider.value}`;
-    //             this.currentSelectedAnswer = parseInt(slider.value);
-    //             nextBtn.disabled = false;
-    //         };
-            
-    //         sliderContainer.appendChild(slider);
-    //         sliderContainer.appendChild(valueDisplay);
-    //         optionsContainer.appendChild(sliderContainer);
-            
-    //         // Add scale labels
-    //         const scaleLabels = document.createElement("div");
-    //         scaleLabels.className = "scale-labels";
-    //         scaleLabels.innerHTML = `
-    //             <span>0 (Very Low)</span>
-    //             <span>${question.scale} (Very High)</span>
-    //         `;
-    //         optionsContainer.appendChild(scaleLabels);
-
-    //         nextBtn.onclick = () => {
-    //             const answer = this.currentSelectedAnswer || 5; // Default to 5 if not moved
-    //             this.userAnswers.push(answer); 
-    //             this.quizResults.responses.push({
-    //                 question: question.text,
-    //                 userAnswer: answer
-    //             });
-    //             this.currentIndex++;
-    //             this.showQuestion();
-    //         };
-    //     }
-    //     // Update progress bar
-    //     const progressPercentage = `${this.currentIndex + 1}` / totalQuestions * 100;
-    //     progress.style.width = `${progressPercentage}%`;
-    //     progressText.textContent = `Question ${this.currentIndex + 1} of ${totalQuestions}`;
-        
-    //     // Set next button text
-    //     nextBtn.textContent = this.currentIndex === totalQuestions - 1
-    //         ? "Submit and See Results" 
-    //         : "Next";
-        
-    //     window.scrollTo({ top: 0, behavior: 'smooth' });
-    // }
+   
     startScoring(btn, charCounter = null) {
     btn.disabled = true;
     btn.textContent = "Scoring...";
@@ -650,38 +575,15 @@ class UbuntexIndex {
         console.log(this.userAnswers);
 }
 
-
-
-
     
     calculateScore() {
         //modify userAnswers array according to the calculation method
         const originalArray = [...this.userAnswers]
         const newArray = [...originalArray]
 
-        // Apply transformations based on array[5]
-        const base5 = originalArray[5] / 2
-        newArray[6] = originalArray[6] - base5
-        newArray[7] = originalArray[7] - base5
-        newArray[8] = originalArray[8] - base5
-        newArray[9] = originalArray[9] - base5
-
-        // Apply transformations based on array[13]
-        const base14 = originalArray[14] / 2
-        newArray[15] = originalArray[15] - base14
-        newArray[16] = originalArray[16] - base14
-        newArray[17] = originalArray[17] - base14
-        newArray[18] = originalArray[18] - base14
-        newArray[19] = originalArray[19] - base14
-
-        // Apply transformation based on array[22]
-        const base27 = originalArray[27] / 2
-        newArray[28] = originalArray[28] - base27
-
-        console.log(newArray)
 
         const totalScore = newArray.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
-        const maxPossibleScore = 315
+        const maxPossibleScore = 240
         const finalScore = (totalScore  / maxPossibleScore) * 100 
         localStorage.setItem('ubuntexTestCompleted', 'true') // Mark test as completed in localStorage
     
