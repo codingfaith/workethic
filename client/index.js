@@ -14,21 +14,24 @@ class UbuntexIndex {
                     A: ["Spend time planning before beginning"],
                     B: ["Start quickly and adjust as I go"],
                 },
-                type: "multiple-choice"
+                type: "multiple-choice",
+                expectations: "Look for signs of proactive planning vs. preference for quick action. Score higher for thoughtful preparation and lower for impulsive starts."
             },{
                 text: "I feel most satisfied when:", //2
                 choices: {
                     A: ["I complete something thoroughly"],
                     B: ["I make significant progress quickly"],
                 },
-                type: "multiple-choice"
+                type: "multiple-choice",
+                expectations: "Look for ."
             },{
                 text: "When given instructions, I prefer to:", //3
                 choices: {
                     A: ["Follow them closely"],
                     B: ["Adapt them if I see a better way "],
                 },
-                type: "multiple-choice"
+                type: "multiple-choice",
+                expectations: "Look for signs of conscientiousness and attention to detail vs. flexibility and innovation. Score higher for those who value doing things right and lower for those who prioritize speed over quality."
             },{
                 text: " I review my work before submitting it", //4
                 choices: {
@@ -37,7 +40,8 @@ class UbuntexIndex {
                     C: ["Sometimes "],
                     D: ["Almost Always"]
                 },
-                type: "multiple-choice"
+                type: "multiple-choice",
+                expectations: "Look for consistency in quality control. Score higher for those who regularly check their work and lower for those who often skip this step."
             },{ 
                 text: "I begin tasks ahead of deadlines", //5
                 choices: {
@@ -46,7 +50,8 @@ class UbuntexIndex {
                     C: ["Sometimes "],
                     D: ["Almost Always"]
                 },
-                type: "multiple-choice"
+                type: "multiple-choice",
+                expectations: "Look for proactive time management. Score higher for those who consistently start early and lower for those who frequently wait until the last minute."
             },{ 
                 text: "I continue working on tasks even when I lose interest", //6
                 choices: {
@@ -55,7 +60,8 @@ class UbuntexIndex {
                     C: ["Sometimes "],
                     D: ["Almost Always"]
                 },
-                type: "multiple-choice"
+                type: "multiple-choice",
+                expectations
             },{ 
                 text: "I track my own progress without being asked", //7
                 choices: {
@@ -64,42 +70,49 @@ class UbuntexIndex {
                     C: ["Sometimes "],
                     D: ["Almost Always"]
                 },
-                type: "multiple-choice"
+                type: "multiple-choice",
+                expectations: "Look for self-monitoring and accountability. Score higher for those who regularly track their progress and lower for those who often rely on external prompts."
             },{ 
                 text: "If you had limited time, which would you prioritize?", //8
                 choices: {
                     A: ["Completing all tasks, even if some are imperfect"],
                     B: ["Ensuring fewer tasks are completed at a high standard"]
                 },
-                type: "multiple-choice"
+                type: "multiple-choice",
+                expectations: "Look for prioritization of quality vs. quantity. Score higher for those who value doing things well even if it means doing less, and lower for those who prioritize getting more done at the expense of quality."
             },{
                 text: "When facing a difficult task, you are more likely to:", //9
                 choices: {
                     A: ["Break it into smaller steps and keep going "],
                     B: ["Pause and return later with a fresh perspective"]
                 },
-                type: "multiple-choice"
+                type: "multiple-choice",
+                expectations: "Look for persistence and problem-solving approaches. Score higher for those who actively work through challenges and lower for those who prefer to step away and return later."
             },{
                 text: "If a deadline seems unrealistic:", //10
                 choices: {
                     A: ["Start immediately and do what's possible"],
                     B: ["Reassess and adjust expectations first"]
                 },
-                type: "multiple-choice"
+                type: "multiple-choice",
+                expectations: "Look for adaptability and communication styles. Score higher for those who take initiative to start working while also seeking to clarify and adjust expectations, and lower for those who either blindly push forward or hesitate without taking action."
             },{
                 text: "When a project doesn't go as planned, my first thought is:", //11
                 choices: {
                     A: ["What could I have done differently"],
                     B: ["What factors affected the outcome"]
                 },
-                type: "multiple-choice"
+                type: "multiple-choice",
+                expectations: "Look for internal vs. external locus of control. Score higher for those who reflect on their own actions and decisions, and lower for those who primarily attribute outcomes to external factors."
             },{
                 text: "When working in a team, I usually:", //12
                 choices: {
                     A: ["Focus on my responsibilities"],
                     B: ["Stay aware of how others are progressing"]
                 },
-                type: "multiple-choice"
+                type: "multiple-choice",
+                expectations: "Look for collaboration and team awareness. Score higher for those who actively engage with their teammates and lower for those who focus solely on their individual tasks."
+
             },{
                 text: "On days when I don't feel motivated:", //13
                 choices: {
@@ -113,14 +126,16 @@ class UbuntexIndex {
                     A: ["I find ways to stay consistent"],
                     B: ["I lose focus and switch tasks more often"]
                 },
-                type: "multiple-choice"
+                type: "multiple-choice",
+                expectations: "Look for consistency and focus. Score higher for those who maintain their effort and attention even when tasks become routine, and lower for those who struggle to stay engaged and frequently switch between tasks."
             },{
                 text: "After completing a task, I typically:", //15
                 choices: {
                     A: ["Move on to the next task"],
                     B: ["Think about how it could be improved"]
                 },
-                type: "multiple-choice"
+                type: "multiple-choice",
+                expectations: "Look for continuous improvement mindset. Score higher for those who actively reflect on their work and seek ways to enhance it, and lower for those who quickly move on without considering potential improvements."
             },{
                 text: "Explain how you actively look for ways to improve how you work:", //16
                 expectations: "Score 0-10 based on work ethic, creativity, productivity, and growth mindset. 0=no action, 10=consistent proactive improvement",
@@ -131,21 +146,24 @@ class UbuntexIndex {
                     A: ["Start and figure things out along the way"],
                     B: ["Seek clarification before proceeding"]
                 },
-                type: "multiple-choice"
+                type: "multiple-choice",
+                expectations: "Look for initiative and problem-solving approaches. Score higher for those who take proactive steps to clarify instructions and ensure they understand the task before starting, and lower for those who either jump in without seeking clarity or hesitate without taking action."
             },{
                 text: "A teammate is falling behind and it may affect you. You:", //18
                 choices: {
                     A: ["Focus on ensuring your work is done"],
                     B: ["Step in to help or raise the issue"]
                 },
-                type: "multiple-choice"
+                type: "multiple-choice",
+                expectations: "Look for teamwork and accountability. Score higher for those who actively support their teammates and take responsibility for the overall success of the project, and lower for those who focus solely on their individual tasks without considering the impact on the team."
             },{
                 text: "You finish a task earlier than expected. You:", //19
                 choices: {
                     A: ["Move on to the next assigned task"],
                     B: ["Review or improve what you've done"]
                 },
-                type: "multiple-choice"
+                type: "multiple-choice",
+                expectations: "Look for initiative and commitment to quality. Score higher for those who take the opportunity to enhance their work or ensure it's polished, and lower for those who simply move on without considering potential improvements."
             },{
                 text: "Rank what matters most in how you work. Completing tasks quickly:", //20
                 scale: 10,
@@ -164,7 +182,7 @@ class UbuntexIndex {
                 type: "scale"
             },{
                 text: "Finally, in a work environment what situations to you seek to affect the most, and how?", //24
-                expectations: "Score 0-10 based on work ethic, creativity, productivity, and growth mindset. 0=no action, 10=consistent proactive improvement",
+                expectations: "Score 0-10 based on impact and growth mindset. 0=no proactive effort, 10=actively seeks to influence and improve work environment for self and others",
                 type: "open-ended",
             },{
                 
@@ -274,156 +292,351 @@ class UbuntexIndex {
         this.showQuestion();
     }
 
-    showQuestion() {
-        const questionContainer = document.getElementById("question");
-        const optionsContainer = document.getElementById("options");
-        const nextBtn = document.getElementById("next-btn");
-        const charCounter = document.getElementById("char-counter");
+    // showQuestion() {
+    //     const questionContainer = document.getElementById("question");
+    //     const optionsContainer = document.getElementById("options");
+    //     const nextBtn = document.getElementById("next-btn");
+    //     const charCounter = document.getElementById("char-counter");
 
-        if (this.currentIndex >= totalQuestions) {
-            // this.calculateScore();
-            console.log("Out of questions");
-            return;
-        }
+    //     if (this.currentIndex >= totalQuestions) {
+    //         this.calculateScore();
+    //         console.log("Out of questions");
+    //         return;
+    //     }
         
-        const question = this.questions[this.currentIndex];
-        questionContainer.textContent = `Question ${this.currentIndex + 1}: ${question.text}`;
-        optionsContainer.innerHTML = '';
+    //     const question = this.questions[this.currentIndex];
+    //     questionContainer.textContent = `Question ${this.currentIndex + 1}: ${question.text}`;
+    //     optionsContainer.innerHTML = '';
        
-        // Clear any previous event listeners
-        nextBtn.onclick = null;
-        this.currentSelectedAnswer = null;
+    //     // Clear any previous event listeners
+    //     nextBtn.onclick = null;
+    //     this.currentSelectedAnswer = null;
 
-        if (question.type === "open-ended") {
-            // Open-ended question UI
-            optionsContainer.innerHTML = `
-                <textarea id="user-response" placeholder="Type your answer..." maxlength="150"></textarea>
-            `;
-            charCounter.textContent = `0/150 characters`;
-            // Add input event listener for character counting
-            const textarea = document.getElementById("user-response");
-            textarea.addEventListener('input', (e) => {
-                const currentLength = e.target.value.length;
-                charCounter.textContent = `${currentLength}/150 characters`;
+    //     if (question.type === "open-ended") {
+    //         // Open-ended question UI
+    //         optionsContainer.innerHTML = `
+    //             <textarea id="user-response" placeholder="Type your answer..." maxlength="150"></textarea>
+    //         `;
+    //         charCounter.textContent = `0/150 characters`;
+    //         // Add input event listener for character counting
+    //         const textarea = document.getElementById("user-response");
+    //         textarea.addEventListener('input', (e) => {
+    //             const currentLength = e.target.value.length;
+    //             charCounter.textContent = `${currentLength}/150 characters`;
                 
-                // Change color when approaching limit
-                if (currentLength >= 145) {
-                    charCounter.style.color = currentLength === 150 ? '#d32f2f' : '#ff9800';
-                } else {
-                    charCounter.style.color = '#666';
-                }
-            });
+    //             // Change color when approaching limit
+    //             if (currentLength >= 145) {
+    //                 charCounter.style.color = currentLength === 150 ? '#d32f2f' : '#ff9800';
+    //             } else {
+    //                 charCounter.style.color = '#666';
+    //             }
+    //         });
 
-            nextBtn.onclick = async () => {
-                const userResponse = textarea.value.trim();
-                if (!userResponse) {
-                    alert("Please enter your response before proceeding.");
-                    return;
-                }
+    //         nextBtn.onclick = async () => {
+    //             const userResponse = textarea.value.trim();
+    //             if (!userResponse) {
+    //                 alert("Please enter your response before proceeding.");
+    //                 return;
+    //             }
                 
-                nextBtn.disabled = true;
-                nextBtn.textContent = "Scoring...";
-                charCounter.innerText = ""
+    //             nextBtn.disabled = true;
+    //             nextBtn.textContent = "Scoring...";
+    //             charCounter.innerText = ""
                 
-                try {
-                    const score = await this.fetchScoreFromOpenAI(userResponse, question.expectations);
-                        this.userAnswers.push(score);
-                        this.quizResults.responses.push({
-                            question: question.text,
-                            userAnswer:userResponse,
-                        })
-                        this.currentIndex++;
-                        this.showQuestion();
-                    } finally {
-                        nextBtn.textContent = this.currentIndex === this.questions.length - 1 
-                            ? "Submit and See Results" 
-                            : "Next";
-                        nextBtn.disabled = false;
-                }
+    //             try {
+    //                 const score = await this.fetchScoreFromOpenAI(userResponse, question.expectations);
+    //                     this.userAnswers.push(score);
+    //                     this.quizResults.responses.push({
+    //                         question: question.text,
+    //                         userAnswer:userResponse,
+    //                     })
+    //                     this.currentIndex++;
+    //                     this.showQuestion();
+    //                 } finally {
+    //                     nextBtn.textContent = this.currentIndex === this.questions.length - 1 
+    //                         ? "Submit and See Results" 
+    //                         : "Next";
+    //                     nextBtn.disabled = false;
+    //             }
                 
+    //         }
+    //     } else if (question.type === "multiple-choice") {
+    //         // Multiple choice question UI
+    //         Object.entries(question.choices).forEach(([key, value]) => {
+    //             const button = document.createElement("button");
+    //             button.textContent = `${key}: ${value[0]}`;
+    //             button.className = "option-button";
+    //             button.onclick = () => {
+    //                 // Remove active class from all buttons
+    //                 document.querySelectorAll('.option-button').forEach(btn => {
+    //                     btn.classList.remove('active');
+    //                 });
+    //                 // Add active class to clicked button
+    //                 button.classList.add('active');
+    //                 this.currentSelectedAnswer = value[1];
+    //                 nextBtn.disabled = false;
+    //             };
+    //             optionsContainer.appendChild(button);
+    //         });
+
+    //         nextBtn.onclick = () => {
+    //             if (this.currentSelectedAnswer === null) {
+    //                 alert("Please select an option before proceeding.");
+    //                 return;
+    //             }
+    //             this.userAnswers.push(this.currentSelectedAnswer);
+    //             this.quizResults.responses.push({
+    //                 question: question.text,
+    //                 userAnswer: Object.entries(question.choices).find(([_, v]) => v[1] === this.currentSelectedAnswer)[1][0]
+    //             });
+    //             this.currentIndex++;
+    //             this.showQuestion();
+    //         };
+
+    //     }else if (question.type === "scale") {
+    //         // Scale question UI
+    //         const sliderContainer = document.createElement("div");
+    //         sliderContainer.className = "slider-container";
+            
+    //         const slider = document.createElement("input");
+    //         slider.type = "range";
+    //         slider.min = "0";
+    //         slider.max = question.scale.toString();
+    //         slider.value = "5";
+    //         slider.step = "1";
+    //         slider.className = "scale-slider";
+            
+    //         const valueDisplay = document.createElement("div");
+    //         valueDisplay.className = "slider-value";
+    //         valueDisplay.innerHTML = `
+    //             Selected: 5 <span class="slider-instruction">(drag slider to change default)</span>`;
+            
+    //         slider.oninput = () => {
+    //             valueDisplay.textContent = `Selected: ${slider.value}`;
+    //             this.currentSelectedAnswer = parseInt(slider.value);
+    //             nextBtn.disabled = false;
+    //         };
+            
+    //         sliderContainer.appendChild(slider);
+    //         sliderContainer.appendChild(valueDisplay);
+    //         optionsContainer.appendChild(sliderContainer);
+            
+    //         // Add scale labels
+    //         const scaleLabels = document.createElement("div");
+    //         scaleLabels.className = "scale-labels";
+    //         scaleLabels.innerHTML = `
+    //             <span>0 (Very Low)</span>
+    //             <span>${question.scale} (Very High)</span>
+    //         `;
+    //         optionsContainer.appendChild(scaleLabels);
+
+    //         nextBtn.onclick = () => {
+    //             const answer = this.currentSelectedAnswer || 5; // Default to 5 if not moved
+    //             this.userAnswers.push(answer); 
+    //             this.quizResults.responses.push({
+    //                 question: question.text,
+    //                 userAnswer: answer
+    //             });
+    //             this.currentIndex++;
+    //             this.showQuestion();
+    //         };
+    //     }
+    //     // Update progress bar
+    //     const progressPercentage = `${this.currentIndex + 1}` / totalQuestions * 100;
+    //     progress.style.width = `${progressPercentage}%`;
+    //     progressText.textContent = `Question ${this.currentIndex + 1} of ${totalQuestions}`;
+        
+    //     // Set next button text
+    //     nextBtn.textContent = this.currentIndex === totalQuestions - 1
+    //         ? "Submit and See Results" 
+    //         : "Next";
+        
+    //     window.scrollTo({ top: 0, behavior: 'smooth' });
+    // }
+    startScoring(btn, charCounter = null) {
+    btn.disabled = true;
+    btn.textContent = "Scoring...";
+        if (charCounter) charCounter.textContent = "";
+    }
+
+    finishScoring(btn) {
+        btn.textContent = this.currentIndex === this.questions.length - 1 
+            ? "Submit and See Results" 
+            : "Next";
+        btn.disabled = false;
+    }
+
+    showQuestion() {
+    const questionContainer = document.getElementById("question");
+    const optionsContainer = document.getElementById("options");
+    const nextBtn = document.getElementById("next-btn");
+    const charCounter = document.getElementById("char-counter");
+
+
+    if (this.currentIndex >= totalQuestions) {
+        this.calculateScore();
+        console.log("Out of questions");
+        return;
+    }
+
+    const question = this.questions[this.currentIndex];
+
+    questionContainer.textContent = `Question ${this.currentIndex + 1}: ${question.text}`;
+    optionsContainer.innerHTML = '';
+    
+    // Clear any previous event listeners
+    nextBtn.onclick = null;
+    this.currentSelectedAnswer = null;
+
+    if (question.type === "open-ended") {
+        // Open-ended question UI
+        optionsContainer.innerHTML = `
+            <textarea id="user-response" 
+                      placeholder="Type your answer here..." 
+                      maxlength="150"></textarea>
+        `;
+
+        const textarea = document.getElementById("user-response");
+        charCounter.textContent = `0/150 characters`;
+
+        textarea.addEventListener('input', (e) => {
+            const len = e.target.value.length;
+            charCounter.textContent = `${len}/150 characters`;
+            charCounter.style.color = len >= 145 
+                ? (len === 150 ? '#d32f2f' : '#ff9800') 
+                : '#666';
+        });
+
+        nextBtn.onclick = async () => {
+            const userResponse = textarea.value.trim();
+            if (!userResponse) {
+                alert("Please enter your response before proceeding.");
+                return;
             }
-        } else if (question.type === "multiple-choice") {
-            // Multiple choice question UI
-            Object.entries(question.choices).forEach(([key, value]) => {
-                const button = document.createElement("button");
-                button.textContent = `${key}: ${value[0]}`;
-                button.className = "option-button";
-                button.onclick = () => {
-                    // Remove active class from all buttons
-                    document.querySelectorAll('.option-button').forEach(btn => {
-                        btn.classList.remove('active');
-                    });
-                    // Add active class to clicked button
-                    button.classList.add('active');
-                    this.currentSelectedAnswer = value[1];
-                    nextBtn.disabled = false;
-                };
-                optionsContainer.appendChild(button);
-            });
 
-            nextBtn.onclick = () => {
-                if (this.currentSelectedAnswer === null) {
-                    alert("Please select an option before proceeding.");
-                    return;
-                }
-                this.userAnswers.push(this.currentSelectedAnswer);
+            this.startScoring(nextBtn, charCounter);
+
+            try {
+                const score = await this.fetchScoreFromOpenAI(userResponse, question.expectations);
+
+                this.userAnswers.push(score);
                 this.quizResults.responses.push({
                     question: question.text,
-                    userAnswer: Object.entries(question.choices).find(([_, v]) => v[1] === this.currentSelectedAnswer)[1][0]
+                    userAnswer: userResponse
                 });
+
                 this.currentIndex++;
                 this.showQuestion();
-            };
+            } catch (error) {
+                console.error("Scoring error:", error);
+                alert("Failed to score your answer. Please try again.");
+            } finally {
+                this.finishScoring(nextBtn);
+            }
+        };
 
-        }else if (question.type === "scale") {
-            // Scale question UI
-            const sliderContainer = document.createElement("div");
-            sliderContainer.className = "slider-container";
-            
-            const slider = document.createElement("input");
-            slider.type = "range";
-            slider.min = "0";
-            slider.max = question.scale.toString();
-            slider.value = "5";
-            slider.step = "1";
-            slider.className = "scale-slider";
-            
-            const valueDisplay = document.createElement("div");
-            valueDisplay.className = "slider-value";
-            valueDisplay.innerHTML = `
-                Selected: 5 <span class="slider-instruction">(drag slider to change default)</span>`;
-            
-            slider.oninput = () => {
-                valueDisplay.textContent = `Selected: ${slider.value}`;
-                this.currentSelectedAnswer = parseInt(slider.value);
+    } 
+    else if (question.type === "multiple-choice") {
+        // ==================== MULTIPLE CHOICE (Now uses AI Scoring) ====================
+        Object.entries(question.choices).forEach(([key, value]) => {
+            const button = document.createElement("button");
+            button.textContent = `${key}: ${value[0]}`;   // value[0] = display text
+            button.className = "option-button";
+
+            button.onclick = () => {
+                document.querySelectorAll('.option-button').forEach(btn => 
+                    btn.classList.remove('active')
+                );
+                button.classList.add('active');
+
+                this.currentSelectedAnswer = value[0]; // Store the text that will be scored
                 nextBtn.disabled = false;
             };
-            
-            sliderContainer.appendChild(slider);
-            sliderContainer.appendChild(valueDisplay);
-            optionsContainer.appendChild(sliderContainer);
-            
-            // Add scale labels
-            const scaleLabels = document.createElement("div");
-            scaleLabels.className = "scale-labels";
-            scaleLabels.innerHTML = `
-                <span>0 (Very Low)</span>
-                <span>${question.scale} (Very High)</span>
-            `;
-            optionsContainer.appendChild(scaleLabels);
 
-            nextBtn.onclick = () => {
-                const answer = this.currentSelectedAnswer || 5; // Default to 5 if not moved
-                this.userAnswers.push(answer); 
+            optionsContainer.appendChild(button);
+        });
+
+        nextBtn.onclick = async () => {
+            if (!this.currentSelectedAnswer) {
+                alert("Please select an option before proceeding.");
+                return;
+            }
+
+            this.startScoring(nextBtn);
+
+            try {
+                const score = await this.fetchScoreFromOpenAI(
+                    this.currentSelectedAnswer, 
+                    question.expectations
+                );
+
+                this.userAnswers.push(score);
                 this.quizResults.responses.push({
                     question: question.text,
-                    userAnswer: answer
+                    userAnswer: this.currentSelectedAnswer
                 });
+
                 this.currentIndex++;
                 this.showQuestion();
-            };
-        }
-        // Update progress bar
+            } catch (error) {
+                console.error("Scoring error:", error);
+                alert("Failed to score your answer. Please try again.");
+            } finally {
+                this.finishScoring(nextBtn);
+            }
+        };
+    } 
+    else if (question.type === "scale") {
+        // ==================== SCALE (kept as numeric, no AI scoring) ====================
+        const sliderContainer = document.createElement("div");
+        sliderContainer.className = "slider-container";
+
+        const slider = document.createElement("input");
+        slider.type = "range";
+        slider.min = "0";
+        slider.max = question.scale.toString();
+        slider.value = "5";
+        slider.step = "1";
+        slider.className = "scale-slider";
+
+        const valueDisplay = document.createElement("div");
+        valueDisplay.className = "slider-value";
+        valueDisplay.innerHTML = `Selected: 5 <span class="slider-instruction">(drag to change)</span>`;
+
+        slider.oninput = () => {
+            valueDisplay.textContent = `Selected: ${slider.value}`;
+            this.currentSelectedAnswer = parseInt(slider.value);
+            nextBtn.disabled = false;
+        };
+
+        sliderContainer.append(slider, valueDisplay);
+        optionsContainer.appendChild(sliderContainer);
+
+        const scaleLabels = document.createElement("div");
+        scaleLabels.className = "scale-labels";
+        scaleLabels.innerHTML = `
+            <span>0 (Very Low)</span>
+            <span>${question.scale} (Very High)</span>
+        `;
+        optionsContainer.appendChild(scaleLabels);
+
+        this.currentSelectedAnswer = 5;
+        nextBtn.disabled = false;
+
+        nextBtn.onclick = () => {
+            const answer = this.currentSelectedAnswer ?? 5;
+            this.userAnswers.push(answer);
+            this.quizResults.responses.push({
+                question: question.text,
+                userAnswer: answer
+            });
+
+            this.currentIndex++;
+            this.showQuestion();
+        };
+    }
+
+    // Update progress bar
         const progressPercentage = `${this.currentIndex + 1}` / totalQuestions * 100;
         progress.style.width = `${progressPercentage}%`;
         progressText.textContent = `Question ${this.currentIndex + 1} of ${totalQuestions}`;
@@ -434,7 +647,12 @@ class UbuntexIndex {
             : "Next";
         
         window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+        console.log(this.userAnswers);
+}
+
+
+
+
     
     calculateScore() {
         //modify userAnswers array according to the calculation method
