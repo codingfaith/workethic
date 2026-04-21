@@ -224,8 +224,13 @@ class UbuntexIndex {
 
                 return {
                     scores: [],
-                    finalScore: 50
+                    finalScore: null,
+                    error: true
                 };
+            }
+            if (result.error || result.finalScore === null) {
+                alert("We couldn't calculate your score. Please try again.");
+                return;
             }
         }
 
@@ -257,7 +262,6 @@ class UbuntexIndex {
 
     if (this.currentIndex >= totalQuestions) {
         this.calculateScore();
-        console.log("Out of questions");
         return;
     }
 
