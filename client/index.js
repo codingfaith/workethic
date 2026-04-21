@@ -329,10 +329,8 @@ class UbuntexIndex {
         });
 
         nextBtn.onclick = () => {
-            const userResponse = textarea.value.trim();
-
-            if (!userResponse) {
-                alert("Please enter a response.");
+            if (!this.currentSelectedAnswer) {
+                alert("Please select an option.");
                 return;
             }
 
