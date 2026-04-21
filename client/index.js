@@ -14,24 +14,21 @@ class UbuntexIndex {
                     A: ["Spend time planning before beginning"],
                     B: ["Start quickly and adjust as I go"],
                 },
-                type: "multiple-choice",
-                expectations: "Look for signs of proactive planning vs. preference for quick action. Score higher for thoughtful preparation and lower for impulsive starts."
+                type: "multiple-choice"
             },{
                 text: "I feel most satisfied when:", //2
                 choices: {
                     A: ["I complete something thoroughly"],
                     B: ["I make significant progress quickly"],
                 },
-                type: "multiple-choice",
-                expectations: ""
+                type: "multiple-choice"
             },{
                 text: "When given instructions, I prefer to:", //3
                 choices: {
                     A: ["Follow them closely"],
                     B: ["Adapt them if I see a better way "],
                 },
-                type: "multiple-choice",
-                expectations: "Look for signs of conscientiousness and attention to detail vs. flexibility and innovation. Score higher for those who value doing things right and lower for those who prioritize speed over quality."
+                type: "multiple-choice"
             },{
                 text: " I review my work before submitting it", //4
                 choices: {
@@ -40,8 +37,7 @@ class UbuntexIndex {
                     C: ["Sometimes "],
                     D: ["Almost Always"]
                 },
-                type: "multiple-choice",
-                expectations: "Look for consistency in quality control. Score higher for those who regularly check their work and lower for those who often skip this step."
+                type: "multiple-choice"
             },{ 
                 text: "I begin tasks ahead of deadlines", //5
                 choices: {
@@ -50,8 +46,7 @@ class UbuntexIndex {
                     C: ["Sometimes "],
                     D: ["Almost Always"]
                 },
-                type: "multiple-choice",
-                expectations: "Look for proactive time management. Score higher for those who consistently start early and lower for those who frequently wait until the last minute."
+                type: "multiple-choice"
             },{ 
                 text: "I continue working on tasks even when I lose interest", //6
                 choices: {
@@ -60,8 +55,7 @@ class UbuntexIndex {
                     C: ["Sometimes "],
                     D: ["Almost Always"]
                 },
-                type: "multiple-choice",
-                expectations
+                type: "multiple-choice"
             },{ 
                 text: "I track my own progress without being asked", //7
                 choices: {
@@ -70,49 +64,42 @@ class UbuntexIndex {
                     C: ["Sometimes "],
                     D: ["Almost Always"]
                 },
-                type: "multiple-choice",
-                expectations: "Look for self-monitoring and accountability. Score higher for those who regularly track their progress and lower for those who often rely on external prompts."
+                type: "multiple-choice"
             },{ 
                 text: "If you had limited time, which would you prioritize?", //8
                 choices: {
                     A: ["Completing all tasks, even if some are imperfect"],
                     B: ["Ensuring fewer tasks are completed at a high standard"]
                 },
-                type: "multiple-choice",
-                expectations: "Look for prioritization of quality vs. quantity. Score higher for those who value doing things well even if it means doing less, and lower for those who prioritize getting more done at the expense of quality."
+                type: "multiple-choice"
             },{
                 text: "When facing a difficult task, you are more likely to:", //9
                 choices: {
                     A: ["Break it into smaller steps and keep going "],
                     B: ["Pause and return later with a fresh perspective"]
                 },
-                type: "multiple-choice",
-                expectations: "Look for persistence and problem-solving approaches. Score higher for those who actively work through challenges and lower for those who prefer to step away and return later."
+                type: "multiple-choice"
             },{
                 text: "If a deadline seems unrealistic:", //10
                 choices: {
                     A: ["Start immediately and do what's possible"],
                     B: ["Reassess and adjust expectations first"]
                 },
-                type: "multiple-choice",
-                expectations: "Look for adaptability and communication styles. Score higher for those who take initiative to start working while also seeking to clarify and adjust expectations, and lower for those who either blindly push forward or hesitate without taking action."
+                type: "multiple-choice"
             },{
                 text: "When a project doesn't go as planned, my first thought is:", //11
                 choices: {
                     A: ["What could I have done differently"],
                     B: ["What factors affected the outcome"]
                 },
-                type: "multiple-choice",
-                expectations: "Look for internal vs. external locus of control. Score higher for those who reflect on their own actions and decisions, and lower for those who primarily attribute outcomes to external factors."
+                type: "multiple-choice"
             },{
                 text: "When working in a team, I usually:", //12
                 choices: {
                     A: ["Focus on my responsibilities"],
                     B: ["Stay aware of how others are progressing"]
                 },
-                type: "multiple-choice",
-                expectations: "Look for collaboration and team awareness. Score higher for those who actively engage with their teammates and lower for those who focus solely on their individual tasks."
-
+                type: "multiple-choice"
             },{
                 text: "On days when I don't feel motivated:", //13
                 choices: {
@@ -126,44 +113,38 @@ class UbuntexIndex {
                     A: ["I find ways to stay consistent"],
                     B: ["I lose focus and switch tasks more often"]
                 },
-                type: "multiple-choice",
-                expectations: "Look for consistency and focus. Score higher for those who maintain their effort and attention even when tasks become routine, and lower for those who struggle to stay engaged and frequently switch between tasks."
+                type: "multiple-choice"
             },{
                 text: "After completing a task, I typically:", //15
                 choices: {
                     A: ["Move on to the next task"],
                     B: ["Think about how it could be improved"]
                 },
-                type: "multiple-choice",
-                expectations: "Look for continuous improvement mindset. Score higher for those who actively reflect on their work and seek ways to enhance it, and lower for those who quickly move on without considering potential improvements."
+                type: "multiple-choice"
             },{
                 text: "Explain how you actively look for ways to improve how you work:", //16
-                expectations: "Score 0-10 based on work ethic, creativity, productivity, and growth mindset. 0=no action, 10=consistent proactive improvement",
-                type: "open-ended",
+                type: "open-ended"
             },{
                 text: "You are given a task with unclear instructions. You:", //17
                 choices: {
                     A: ["Start and figure things out along the way"],
                     B: ["Seek clarification before proceeding"]
                 },
-                type: "multiple-choice",
-                expectations: "Look for initiative and problem-solving approaches. Score higher for those who take proactive steps to clarify instructions and ensure they understand the task before starting, and lower for those who either jump in without seeking clarity or hesitate without taking action."
+                type: "multiple-choice"
             },{
                 text: "A teammate is falling behind and it may affect you. You:", //18
                 choices: {
                     A: ["Focus on ensuring your work is done"],
                     B: ["Step in to help or raise the issue"]
                 },
-                type: "multiple-choice",
-                expectations: "Look for teamwork and accountability. Score higher for those who actively support their teammates and take responsibility for the overall success of the project, and lower for those who focus solely on their individual tasks without considering the impact on the team."
+                type: "multiple-choice"
             },{
                 text: "You finish a task earlier than expected. You:", //19
                 choices: {
                     A: ["Move on to the next assigned task"],
                     B: ["Review or improve what you've done"]
                 },
-                type: "multiple-choice",
-                expectations: "Look for initiative and commitment to quality. Score higher for those who take the opportunity to enhance their work or ensure it's polished, and lower for those who simply move on without considering potential improvements."
+                type: "multiple-choice"
             },{
                 text: "Rank what matters most in how you work. Completing tasks quickly:", //20
                 scale: 10,
@@ -182,7 +163,6 @@ class UbuntexIndex {
                 type: "scale"
             },{
                 text: "Finally, in a work environment what situations to you seek to affect the most, and how?", //24
-                expectations: "Score 0-10 based on impact and growth mindset. 0=no proactive effort, 10=actively seeks to influence and improve work environment for self and others",
                 type: "open-ended",
             },{
                 
@@ -190,8 +170,7 @@ class UbuntexIndex {
         ];
 
         this.currentIndex = 0;
-        this.userAnswers = [];
-        this.quizResults = {responses: []};
+        this.responses = [];
         this.checkTestCompletion();
     }
 
@@ -213,164 +192,42 @@ class UbuntexIndex {
             <p>You have already completed the test on this device.</p>`;
     }
 
-    // async fetchScoreFromOpenAI(userResponse, expectations) {
-    //     const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-    //     const apiUrl = '/api/openai-proxy';
-    //     const fallbackScore = 5;
-        
-    //     // 1. Check connectivity first
-    //     if (isIOS && !navigator.onLine) {
-    //         console.warn('iOS offline detected - returning fallback');
-    //         return fallbackScore;
-    //     }
 
-    //     try {
-    //         const payload = {
-    //             userResponse: typeof userResponse === 'string' ? userResponse.trim() : '',
-    //             expectations: typeof expectations === 'string' ? expectations.trim() : ''
-    //         };
+    async fetchScoreFromOpenAI(responses) {
 
-    //         // 2. Configure with iOS-specific settings
-    //         const controller = new AbortController();
-    //         const timeout = setTimeout(() => controller.abort(), isIOS ? 20000 : 10000);
-            
-    //         const fetchOptions = {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //                 'Accept': 'application/json',
-    //                 'X-Device-Type': isIOS ? 'iOS' : 'other'
-    //             },
-    //             body: JSON.stringify(payload),
-    //             signal: controller.signal,
-    //             cache: 'no-store',
-    //             keepalive: isIOS // Important for iOS background requests
-    //         };
+        const prompt = `
+        You are an expert evaluator.
 
-    //         // 3. Attempt fetch with offline detection
-    //         let response;
-    //         try {
-    //             response = await fetch(apiUrl, fetchOptions);
-    //             clearTimeout(timeout);
-    //         } catch (error) {
-    //             if (error.name === 'AbortError') {
-    //                 console.warn('Request timeout');
-    //             }
-    //             throw error;
-    //         }
+        ${this.expectation}
 
-    //         // 4. Handle successful response
-    //         if (response.ok) {
-    //             const data = await response.json();
-    //             return data?.score ?? fallbackScore;
-    //         }
+        User Responses:
+        ${JSON.stringify(responses, null, 2)}
 
-    //         throw new Error(`HTTP ${response.status}`);
-            
-    //     } catch (error) {
-    //         console.error('Scoring error:', {
-    //             error: error.message,
-    //             type: error.name,
-    //             isIOS,
-    //             onlineStatus: navigator.onLine,
-    //             userAgent: navigator.userAgent,
-    //             timestamp: new Date().toISOString()
-    //         });
+        Instructions:
+        - Score EACH response from 0-10
+        - Return valid JSON ONLY
+        `;
 
-    //         // 5. Special offline handling
-    //         if (!navigator.onLine) {
-    //             // Can implement offline storage here if needed
-    //             return fallbackScore;
-    //         }
+            try {
+                const response = await fetch("/api/openai-proxy", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ prompt })
+                });
 
-    //         // 6. Final fallback for other errors
-    //         return fallbackScore;
-    //     }
-    // }
+                const data = await response.json();
 
-    async fetchScoreFromOpenAI(userAnswer, expectations) {
-    if (!expectations) {
-        console.warn("No expectations provided for scoring. Using default.");
-        expectations = "Score the response based on how well it demonstrates positive traits, emotional intelligence, or desired behavior. Be fair and consistent.";
-    }
+                return data;
 
-    const prompt = `
-You are an expert, fair, and consistent quiz scorer. 
-Your task is to evaluate the user's response to a question and assign a score from 0 to 10.
+            } catch (error) {
+                console.error("Batch scoring failed:", error);
 
-Scoring Guidelines:
-- 9-10: Excellent / Ideal answer — fully aligns with the expectations, shows strong insight, maturity, or desired qualities.
-- 7-8: Good / Solid answer — mostly aligns, minor gaps or improvements possible.
-- 5-6: Average / Acceptable — partially meets expectations but has clear weaknesses.
-- 3-4: Below Average — limited alignment or notable issues.
-- 0-2: Poor / Misaligned — little to no alignment with expectations, or shows undesirable traits.
-
-Question Context & Expectations:
-${expectations}
-
-User's Response:
-"${userAnswer}"
-
-Instructions:
-1. Carefully compare the user's response against the expectations.
-2. Think step-by-step about strengths and weaknesses.
-3. Assign ONE integer score between 0 and 10.
-4. Provide a short, professional explanation (1–3 sentences) justifying the score.
-
-Respond in valid JSON format only, exactly like this:
-{
-  "score": 8,
-  "explanation": "The response demonstrates good self-awareness and a constructive approach to conflict, though it could mention collaboration more explicitly."
-}
-`;
-
-    try {
-        const response = await fetch("https://api.openai.com/v1/chat/completions", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${this.openAIKey}`   // make sure this is set in your class
-            },
-            body: JSON.stringify({
-                model: "gpt-4o-mini",           // or "gpt-4o" for higher quality
-                messages: [
-                    { role: "system", content: "You are a precise and objective evaluator." },
-                    { role: "user", content: prompt }
-                ],
-                temperature: 0.2,               // low temperature = more consistent scoring
-                max_tokens: 300
-            })
-        });
-
-        const data = await response.json();
-        
-        if (!data.choices || !data.choices[0]) {
-            throw new Error("Invalid response from OpenAI");
+                return {
+                    scores: [],
+                    finalScore: 50
+                };
+            }
         }
-
-        const content = data.choices[0].message.content.trim();
-        
-        // Parse JSON safely
-        let result;
-        try {
-            result = JSON.parse(content);
-        } catch (e) {
-            // Fallback if model returns extra text
-            const scoreMatch = content.match(/"score":\s*(\d+)/);
-            const score = scoreMatch ? parseInt(scoreMatch[1]) : 5;
-            result = { 
-                score: Math.max(0, Math.min(10, score)), 
-                explanation: "Score extracted from response." 
-            };
-        }
-
-        return result.score;   // Return just the numeric score for your existing logic
-
-    } catch (error) {
-        console.error("OpenAI scoring failed:", error);
-        return 5; // fallback neutral score
-    }
-}
 
 
     startQuiz() {
@@ -432,32 +289,22 @@ Respond in valid JSON format only, exactly like this:
                 : '#666';
         });
 
-        nextBtn.onclick = async () => {
+        nextBtn.onclick = () => {
             const userResponse = textarea.value.trim();
+
             if (!userResponse) {
-                alert("Please enter your response before proceeding.");
+                alert("Please enter a response.");
                 return;
             }
 
-            this.startScoring(nextBtn, charCounter);
+            this.responses.push({
+                questionIndex: this.currentIndex,
+                question: question.text,
+                answer: userResponse
+            });
 
-            try {
-                const score = await this.fetchScoreFromOpenAI(userResponse, question.expectations);
-
-                this.userAnswers.push(score);
-                this.quizResults.responses.push({
-                    question: question.text,
-                    userAnswer: userResponse
-                });
-
-                this.currentIndex++;
-                this.showQuestion();
-            } catch (error) {
-                console.error("Scoring error:", error);
-                alert("Failed to score your answer. Please try again.");
-            } finally {
-                this.finishScoring(nextBtn);
-            }
+            this.currentIndex++;
+            this.showQuestion();
         };
 
     } 
@@ -481,34 +328,22 @@ Respond in valid JSON format only, exactly like this:
             optionsContainer.appendChild(button);
         });
 
-        nextBtn.onclick = async () => {
-            if (!this.currentSelectedAnswer) {
-                alert("Please select an option before proceeding.");
+        nextBtn.onclick = () => {
+            const userResponse = textarea.value.trim();
+
+            if (!userResponse) {
+                alert("Please enter a response.");
                 return;
             }
 
-            this.startScoring(nextBtn);
+            this.responses.push({
+                questionIndex: this.currentIndex,
+                question: question.text,
+                answer: userResponse
+            });
 
-            try {
-                const score = await this.fetchScoreFromOpenAI(
-                    this.currentSelectedAnswer, 
-                    question.expectations
-                );
-
-                this.userAnswers.push(score);
-                this.quizResults.responses.push({
-                    question: question.text,
-                    userAnswer: this.currentSelectedAnswer
-                });
-
-                this.currentIndex++;
-                this.showQuestion();
-            } catch (error) {
-                console.error("Scoring error:", error);
-                alert("Failed to score your answer. Please try again.");
-            } finally {
-                this.finishScoring(nextBtn);
-            }
+            this.currentIndex++;
+            this.showQuestion();
         };
     } 
     else if (question.type === "scale") {
@@ -549,17 +384,15 @@ Respond in valid JSON format only, exactly like this:
         nextBtn.disabled = false;
 
         nextBtn.onclick = () => {
-            const answer = this.currentSelectedAnswer ?? 5;
-            this.userAnswers.push(answer);
-            this.quizResults.responses.push({
+            this.responses.push({
+                questionIndex: this.currentIndex,
                 question: question.text,
-                userAnswer: answer
+                answer: this.currentSelectedAnswer
             });
 
             this.currentIndex++;
             this.showQuestion();
         };
-        console.log(this.quizResults)
     }
 
     // Update progress bar
@@ -577,18 +410,21 @@ Respond in valid JSON format only, exactly like this:
 }
 
     
-    calculateScore() {
-        //modify userAnswers array according to the calculation method
-        const originalArray = [...this.userAnswers]
-        const newArray = [...originalArray]
+    async calculateScore() {
+        try {
+            const result = await this.fetchScoreFromOpenAI(this.responses);
 
+            console.log("Scores:", result.scores);
+            console.log("Final Score:", result.finalScore);
 
-        const totalScore = newArray.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
-        const maxPossibleScore = 240
-        const finalScore = (totalScore  / maxPossibleScore) * 100 
-        localStorage.setItem('ubuntexTestCompleted', 'true') // Mark test as completed in localStorage
-    
-        this.displayResults(finalScore)
+            localStorage.setItem('ubuntexTestCompleted', 'true');
+
+            this.displayResults(result.finalScore);
+
+        } catch (error) {
+            console.error("Final scoring failed:", error);
+            this.displayResults(50); // fallback
+        }
     }
 
     async displayResults(score) {
