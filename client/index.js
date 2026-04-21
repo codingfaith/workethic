@@ -559,6 +559,7 @@ Respond in valid JSON format only, exactly like this:
             this.currentIndex++;
             this.showQuestion();
         };
+        console.log(this.quizResults)
     }
 
     // Update progress bar
