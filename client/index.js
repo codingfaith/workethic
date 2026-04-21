@@ -309,6 +309,7 @@ class UbuntexIndex {
             this.currentIndex++;
             this.showQuestion();
         };
+        charCounter.textContent = ""
 
     } 
     else if (question.type === "multiple-choice") {
