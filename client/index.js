@@ -290,9 +290,9 @@ class UbuntexIndex {
         });
 
         nextBtn.onclick = () => {
-            const userResponse = textarea.value.trim();
+            const userAnswer = textarea.value.trim();
 
-            if (!userResponse) {
+            if (!userAnswer) {
                 alert("Please enter a response.");
                 return;
             }
@@ -300,7 +300,7 @@ class UbuntexIndex {
             this.responses.push({
                 questionIndex: this.currentIndex,
                 question: question.text,
-                answer: userResponse
+                answer: userAnswer
             });
 
             this.currentIndex++;
@@ -337,7 +337,7 @@ class UbuntexIndex {
             this.responses.push({
                 questionIndex: this.currentIndex,
                 question: question.text,
-                answer: userResponse
+                answer: userAnswer
             });
 
             this.currentIndex++;
