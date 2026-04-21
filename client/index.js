@@ -298,7 +298,6 @@ class UbuntexIndex {
             }
 
             this.responses.push({
-                questionIndex: this.currentIndex,
                 question: question.text,
                 answer: userAnswer
             });
@@ -335,7 +334,6 @@ class UbuntexIndex {
             }
 
             this.responses.push({
-                questionIndex: this.currentIndex,
                 question: question.text,
                 answer: this.currentSelectedAnswer
             });
@@ -383,7 +381,6 @@ class UbuntexIndex {
 
         nextBtn.onclick = () => {
             this.responses.push({
-                questionIndex: this.currentIndex,
                 question: question.text,
                 answer: this.currentSelectedAnswer
             });
