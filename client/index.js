@@ -404,7 +404,7 @@ class UbuntexIndex {
             : "Next";
         
         window.scrollTo({ top: 0, behavior: 'smooth' });
-        console.log(this.userAnswers);
+        console.log(this.responses)
 }
 
     
