@@ -598,11 +598,11 @@ class WorkepicIndex {
                 
                 // Answer column
                 const answerCell = document.createElement('td');
-                if (typeof response.userAnswer === 'string') {
-                    answerCell.textContent = response.userAnswer;
+                if (typeof response.answer === 'string') {
+                    answerCell.textContent = response.answer;
                 } else {
-                    answerCell.textContent = response.userAnswer !== undefined 
-                        ? response.userAnswer.toString() 
+                    answerCell.textContent = response.answer !== undefined 
+                        ? response.answer.toString() 
                         : 'N/A';
                 }       
                 row.appendChild(questionCell);
@@ -652,11 +652,10 @@ class WorkepicIndex {
     // Format the results for OpenAI
     const reportData = {
         responses: this.responses.map((response, index) => ({
-            question: this.questions[index].text,
-            answer: typeof response.userAnswer === 'string' 
-                ? response.userAnswer 
-                : response.userAnswer.toString(),
-            category: this.questions[index].category
+            question: response.question,
+            answer: response.answer !== undefined && response.answer !== null
+            ? response.answer.toString()
+            : "No response"
         }))
     };
 
