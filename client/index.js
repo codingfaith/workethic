@@ -488,16 +488,24 @@ class WorkepicIndex {
         const attemptsSnapshot = await attemptsRef.get();
         const attemptNumber = attemptsSnapshot.size + 1;
 
+        // ✅ Normalize answers (best practice)
+        const formattedAnswers = this.responses.map((r, index) => ({
+            questionIndex: index,
+            question: r.question,
+            answer: r.answer
+        }));
+
         const attemptData = {
-            score: score.toFixed(2),
+            score: Number(score.toFixed(2)), // ✅ store as number (not string)
             classification: this.getClassification(score),
-            answers: this.quizResults.responses,
-            report: finalReport,
+            answers: formattedAnswers,       // ✅ FIXED
+            report: finalReport || "Report unavailable",
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-            attemptNumber: attemptNumber
+            attemptNumber
         };
 
         await attemptsRef.add(attemptData);
+
         console.log(`Attempt #${attemptNumber} saved.`);
     }
 
@@ -568,7 +576,7 @@ class WorkepicIndex {
 
     renderResultsTable() {
         // First verify we have all responses
-        if (this.quizResults.responses.length !== this.questions.length) {
+        if (this.this.responses.length !== this.questions.length) {
             console.error("Not all responses have been recorded yet");
             return;
         }
@@ -589,7 +597,7 @@ class WorkepicIndex {
             
             // Create table body
             const tbody = document.createElement('tbody');
-            this.quizResults.responses.forEach((response, index) => {
+            this.responses.forEach((response, index) => {
                 const row = document.createElement('tr');
                 
                 // Question column
