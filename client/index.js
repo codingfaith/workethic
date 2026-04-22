@@ -433,8 +433,10 @@ class WorkepicIndex {
         resultContainer.style.display = "block";
         loadingIndicator.style.display = "block";
 
+        let finalReport = null;
+
         try {
-            const finalReport = await this.generateComprehensiveReport();
+            finalReport = await this.generateComprehensiveReport();
             loadingIndicator.style.display = "none";
             resultContainer.innerHTML = `<p>Generating your detailed report...</p>`;
 
@@ -466,14 +468,13 @@ class WorkepicIndex {
                 }, delay);
 
             } else {
-                console.warn("No authenticated user found (iOS issue).");
-                this.storeLocalForLaterSync(score, finalReport);
-                window.location.replace("https://ubuntex.plus94.tech");
+            this.storeLocalForLaterSync(score, finalReport || "Report unavailable");
+            window.location.replace("https://ubuntex.plus94.tech");
             }
         } catch (error) {
             loadingIndicator.style.display = "none";
             console.error("Error generating report or saving to Firestore:", error);
-            this.storeLocalForLaterSync(score, finalReport);
+            this.storeLocalForLaterSync(score, finalReport || "Report unavailable");
             window.location.replace("https://ubuntex.plus94.tech");
         }
     }
@@ -650,7 +651,7 @@ class WorkepicIndex {
     async generateComprehensiveReport() {
     // Format the results for OpenAI
     const reportData = {
-        responses: this.quizResults.responses.map((response, index) => ({
+        responses: this.responses.map((response, index) => ({
             question: this.questions[index].text,
             answer: typeof response.userAnswer === 'string' 
                 ? response.userAnswer 
