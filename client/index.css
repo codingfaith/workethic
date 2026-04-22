@@ -14,12 +14,12 @@ body {
     display: flex;
     padding: 0.5em;
     align-items: center;
+    align-items: center;
     background: #ffffff;
     justify-content: space-between;
 }
 .logo {
     max-width: 150px;
-    align-self: center;
 }
 .ubuntu-logo p {
     font-size: 3rem;
