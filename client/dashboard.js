@@ -298,9 +298,9 @@ function displayData(data) {
             <div class="report-content hide" id="report-${index}">
               <div class="report-heading">
                 <img src="https://ubuntex.plus94.tech/assets/Plus94_logo2-CJbCr5Cg.png" alt="Plus94 Logo" class="logo">
-                <h1>Ubuntex</h1>
+                <img src="<img src="https://workepic.netlify.app/assets/WorkEpic-DMG8B8qx.png" alt="Plus94 Logo" class="logo">
               </div>
-              <h3 class="report-name">Ubuntu Index Report for ${data.userProfile.firstName} ${data.userProfile.lastName}</h3>
+              <h3 class="report-name">Workepic Index Report for ${data.userProfile.firstName} ${data.userProfile.lastName}</h3>
               <div class="report-metadata">
                 <span class="attempt-date">Test Date: ${formatAttemptDate(attempt.timestamp)}</span>
                 <span class="attempt-score">Test Score: ${attempt.score}%</span>
@@ -309,7 +309,7 @@ function displayData(data) {
 
               ${formatText(attempt.report)}
               <div class="ubuntex-classification">
-                <p><strong>Ubuntex Classification Breakdown</strong></p>
+                <p><strong>Workepic Classification Breakdown</strong></p>
                 <div class="spanContainer">
                   <span>Level 6 : Scores under 65.50%</span>
                   <span>Level 5 : Scores 65.50% to 72.49%</span>
@@ -318,7 +318,7 @@ function displayData(data) {
                   <span>Level 2 : Scores 83.50% to 87.49%</span>
                   <span>Level 1 : Scores 87.50% and above</span>
                 </div>
-                <p>I am, because we are!</p>
+                <p>My effort builds our collective excellence!</p>
               </div>
               <button class="downloadReportBtn">Download Report</button>
             </div>

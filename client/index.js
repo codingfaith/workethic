@@ -490,7 +490,6 @@ class WorkepicIndex {
 
         // ✅ Normalize answers (best practice)
         const formattedAnswers = this.responses.map((r, index) => ({
-            questionIndex: index,
             question: r.question,
             answer: r.answer
         }));
@@ -566,7 +565,7 @@ class WorkepicIndex {
     const element = document.getElementById("results-table");
     const opt = {
         margin:       0.5,
-        filename:     'ubuntex-report.pdf',
+        filename:     'workepic-report.pdf',
         image:        { type: 'jpeg', quality: 0.98 },
         html2canvas:  { scale: 2 },
         jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
