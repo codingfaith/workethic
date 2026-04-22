@@ -102,7 +102,7 @@ ${JSON.stringify(body.responses, null, 2)}
 Return STRICT JSON:
 {
   "scores": [
-    { "questionIndex": 0, "score": 7 }
+    {"score": 7 }
   ],
   "finalScore": 78
 }
