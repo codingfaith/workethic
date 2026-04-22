@@ -5,7 +5,7 @@ const totalQuestions = 24;
 const progress = document.getElementById("progress");
 const progressText = document.getElementById("progress-text");
 
-class UbuntexIndex {
+class WorkepicIndex {
     constructor() {
         this.questions = [
             {
@@ -194,46 +194,38 @@ class UbuntexIndex {
 
 
     async fetchScoreFromOpenAI(responses) {
+        try {
+            const response = await fetch("/api/openai-proxy", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ 
+                    responses // ✅ matches new backend
+                })
+            });
 
-        const prompt = `
-        You are an expert evaluator.
-
-        ${this.expectation}
-
-        User Responses:
-        ${JSON.stringify(responses, null, 2)}
-
-        Instructions:
-        - Score EACH response from 0-10
-        - Return valid JSON ONLY
-        `;
-
-            try {
-                const response = await fetch("/api/openai-proxy", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ prompt })
-                });
-
-                const data = await response.json();
-
-                return data;
-
-            } catch (error) {
-                console.error("Batch scoring failed:", error);
-
-                return {
-                    scores: [],
-                    finalScore: null,
-                    error: true
-                };
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
             }
-            if (result.error || result.finalScore === null) {
-                alert("We couldn't calculate your score. Please try again.");
-                return;
+
+            const result = await response.json();
+
+            // ✅ Validate response structure
+            if (!result || result.finalScore === undefined || result.finalScore === null) {
+                throw new Error("Invalid scoring response");
             }
+
+            return result;
+
+        } catch (error) {
+            console.error("Batch scoring failed:", error);
+
+            return {
+                scores: [],
+                finalScore: null,
+                error: true
+            };
         }
-
+    }
 
     startQuiz() {
         this.showQuestion();
@@ -407,13 +399,17 @@ class UbuntexIndex {
             : "Next";
         
         window.scrollTo({ top: 0, behavior: 'smooth' });
-        console.log(this.responses)
-}
+    }
 
     
     async calculateScore() {
         try {
             const result = await this.fetchScoreFromOpenAI(this.responses);
+
+            if (result.error || result.finalScore === null) {
+                alert("We couldn't calculate your score. Please try again.");
+                return;
+            }
 
             console.log("Scores:", result.scores);
             console.log("Final Score:", result.finalScore);
@@ -424,7 +420,7 @@ class UbuntexIndex {
 
         } catch (error) {
             console.error("Final scoring failed:", error);
-            this.displayResults(50); // fallback
+            alert("Something went wrong. Please try again.");
         }
     }
 
@@ -642,12 +638,12 @@ class UbuntexIndex {
 
     // Helper method to get classification
     getClassification(score) {
-        if (score < 65.50) return "Ubuntex Level 6";
-        if (score < 72.50) return "Ubuntex Level 5";
-        if (score < 78.50) return "Ubuntex Level 4";
-        if (score < 83.50) return "Ubuntex Level 3";
-        if (score < 87.50) return "Ubuntex Level 2";
-        if (score <= 100) return "Ubuntex Level 1";
+        if (score < 65.50) return "Workepic Level 6";
+        if (score < 72.50) return "Workepic Level 5";
+        if (score < 78.50) return "Workepic Level 4";
+        if (score < 83.50) return "Workepic Level 3";
+        if (score < 87.50) return "Workepic Level 2";
+        if (score <= 100) return "Workepic Level 1";
         return "Score could not be calculated";
     }
 
@@ -667,16 +663,16 @@ class UbuntexIndex {
     const prompt = `Analyze these results and provide a detailed report on the responses given by the individual, use UK English for spellings and using MARKDOWN FORMATTING with these sections:
 
     ## Key Insights
-    - Provide 2-3 bullet points summarizing the overall results
+    - Provide 2-3 bullet points summarizing the overall results and predicting work style tendencies
     - Focus on patterns across responses
     
     ## Strengths
     - List 2-3 specific strengths with examples from responses
-    - Mention which Ubuntu principles are strongest
+    - Mention which work ethic principles are strongest
     
     ## Growth Areas  
     - List 2-3 specific opportunities for improvement
-    - Reference specific questions where scores were lower
+    - Reference specific questions where responses indicate potential challenges
     
     ## Recommendations
     - Provide 2-3 actionable suggestions
@@ -684,7 +680,7 @@ class UbuntexIndex {
     
     Formatting Requirements:
     - Use proper markdown headers (##) for each section
-    - Bold important terms like "empathy" or "communal responsibility"
+    - Bold important terms like "work ethic" or "productivity"
     - Include specific examples from responses when possible
     - Tone of report should address the individual test taker in third party (using words like "The candidate displays") not generalise.
     
@@ -711,5 +707,5 @@ class UbuntexIndex {
 }
 // Initialize the quiz when the page loads
 document.addEventListener('DOMContentLoaded', () => {
-    const quiz = new UbuntexIndex();
+    const quiz = new WorkepicIndex();
 });

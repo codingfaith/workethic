@@ -1,146 +1,155 @@
 const axios = require('axios');
 
-// Enhanced OpenAI request configuration with better error handling
-const makeOpenAIRequest = async (prompt, isReport = false) => {
+const makeOpenAIRequest = async (prompt, type = "score") => {
     try {
+        const isReport = type === "report";
+
         const response = await axios.post(
             'https://api.openai.com/v1/chat/completions',
             {
-                model: "gpt-3.5-turbo",
+                model: "gpt-4o-mini", // ✅ better + cheaper than 3.5
                 messages: [
                     {
                         role: "system",
-                        content: isReport 
-                            ? "You are an Ubuntu principles analyst. Provide detailed feedback in markdown format. Use UK English for spellings" 
-                            : "You are a scoring tool. Return ONLY a number from 0-10."
+                        content: isReport
+                            ? "You are a work ethic and productivity principles analyst. Provide structured markdown feedback using UK English."
+                            : "You are a strict JSON scoring engine. ONLY return valid JSON. No extra text."
                     },
                     { role: "user", content: prompt }
                 ],
                 temperature: isReport ? 0.5 : 0.2,
-                max_tokens: isReport ? 500 : 3
+                max_tokens: isReport ? 800 : 500
             },
             {
                 headers: {
                     'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json' // Explicitly accept JSON
+                    'Content-Type': 'application/json'
                 },
-                timeout: isReport ? 15000 : 8000, // Increased timeouts
-                // Add axios-retry options here if needed
+                timeout: isReport ? 20000 : 12000
             }
         );
-        
-        return response;
+
+        return response.data.choices[0]?.message?.content;
+
     } catch (error) {
         console.error('OpenAI API Error:', {
             message: error.message,
-            code: error.code,
-            response: error.response?.data,
-            stack: error.stack
+            response: error.response?.data
         });
-        throw error; // Re-throw for the handler to process
+        throw error;
     }
 };
 
-// Enhanced handler with better iPhone support
+// =========================
+// Safe JSON Parser (IMPORTANT)
+// =========================
+const safeJSONParse = (text) => {
+    try {
+        return JSON.parse(text);
+    } catch {
+        const match = text.match(/\{[\s\S]*\}/);
+        if (match) {
+            try {
+                return JSON.parse(match[0]);
+            } catch {}
+        }
+        return null;
+    }
+};
+
+// =========================
+// Netlify Handler
+// =========================
 exports.handler = async (event) => {
-    // Set CORS headers for all responses
-    const baseHeaders = {
+
+    const headers = {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Headers': 'Content-Type',
         'Access-Control-Allow-Methods': 'POST, OPTIONS'
     };
 
-    // Handle OPTIONS request for CORS preflight
+    // CORS preflight
     if (event.httpMethod === 'OPTIONS') {
-        return {
-            statusCode: 204,
-            headers: baseHeaders,
-            body: ''
-        };
+        return { statusCode: 204, headers };
     }
 
     try {
-        const path = event.path.split('/').pop();
-        
-        if (path === 'openai-proxy' && event.httpMethod === 'POST') {
-            // Parse body safely
-            let body;
-            try {
-                body = typeof event.body === 'string' ? JSON.parse(event.body) : event.body;
-            } catch (e) {
-                return {
-                    statusCode: 400,
-                    headers: baseHeaders,
-                    body: JSON.stringify({ error: 'Invalid JSON format' })
-                };
+        const body = typeof event.body === 'string'
+            ? JSON.parse(event.body)
+            : event.body;
+
+        // =========================
+        // ✅ BATCH SCORING (NEW)
+        // =========================
+        if (body.responses) {
+
+            const prompt = `
+You are an expert evaluator.
+
+Evaluate each response based on:
+- Emotional intelligence
+- Accountability
+- Consistency
+- Growth mindset
+- Work ethic principles
+
+Score each response from 1 to 10, then calculate a final score out of 100.  
+
+Responses:
+${JSON.stringify(body.responses, null, 2)}
+
+Return STRICT JSON:
+{
+  "scores": [
+    { "questionIndex": 0, "score": 7 }
+  ],
+  "finalScore": 78
+}
+`;
+
+            const raw = await makeOpenAIRequest(prompt, "score");
+            const parsed = safeJSONParse(raw);
+
+            if (!parsed || !parsed.finalScore) {
+                throw new Error("Invalid scoring response");
             }
 
-            if (body.prompt) {
-                // Report generation request
-                const response = await makeOpenAIRequest(body.prompt, true);
-                const report = response.data.choices[0]?.message?.content;
-                
-                return {
-                    statusCode: 200,
-                    headers: baseHeaders,
-                    body: JSON.stringify({ report })
-                };
-            } else if (body.userResponse && body.expectations) {
-                // Scoring request
-                const prompt = `Evaluate this response on a 0-10 scale. Expectations: ${body.expectations}\nResponse: ${body.userResponse}\n\nScore based on:
-                • Alignment with Ubuntu principles (empathy, respect, dignity, communal responsibility, originality)
-                • Relevance to the question
-                • Specificity of response
-                RETURN ONLY A NUMBER BETWEEN 0 AND 10`;
+            return {
+                statusCode: 200,
+                headers,
+                body: JSON.stringify(parsed)
+            };
+        }
 
-                const response = await makeOpenAIRequest(prompt);
-                const scoreText = response.data.choices[0]?.message?.content?.trim();
-                let score = parseFloat(scoreText);
-                score = isNaN(score) ? 5 : Math.min(10, Math.max(0, Math.round(score)));
+        // =========================
+        // ✅ REPORT GENERATION
+        // =========================
+        if (body.prompt) {
+            const report = await makeOpenAIRequest(body.prompt, "report");
 
-                return {
-                    statusCode: 200,
-                    headers: baseHeaders,
-                    body: JSON.stringify({ score })
-                };
-            } else {
-                return {
-                    statusCode: 400,
-                    headers: baseHeaders,
-                    body: JSON.stringify({ error: 'Invalid request format' })
-                };
-            }
+            return {
+                statusCode: 200,
+                headers,
+                body: JSON.stringify({ report })
+            };
         }
 
         return {
-            statusCode: 404,
-            headers: baseHeaders,
-            body: JSON.stringify({ error: 'Not found' })
+            statusCode: 400,
+            headers,
+            body: JSON.stringify({ error: "Invalid request format" })
         };
-    } catch (error) {
-        console.error('Handler Error:', {
-            error: error.message,
-            stack: error.stack,
-            event: {
-                path: event.path,
-                method: event.httpMethod,
-                headers: event.headers
-            }
-        });
 
-        // Return more detailed error information
+    } catch (error) {
+        console.error("Handler Error:", error);
+
         return {
-            statusCode: error.response?.status || 500,
-            headers: baseHeaders,
+            statusCode: 500,
+            headers,
             body: JSON.stringify({
-                error: 'Internal server error',
-                message: error.message,
-                ...(process.env.NODE_ENV === 'development' && {
-                    stack: error.stack,
-                    details: error.response?.data
-                })
+                error: "Internal server error",
+                message: error.message
             })
         };
     }
