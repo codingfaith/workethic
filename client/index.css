@@ -19,6 +19,7 @@ body {
 }
 .logo {
     max-width: 150px;
+    align-self: center;
 }
 .ubuntu-logo p {
     font-size: 3rem;
