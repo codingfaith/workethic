@@ -300,7 +300,7 @@ function displayData(data) {
                 <img src="https://ubuntex.plus94.tech/assets/Plus94_logo2-CJbCr5Cg.png" alt="Plus94 Logo" class="logo">
                 <img src="https://workepic.netlify.app/assets/WorkEpic-DMG8B8qx.png" alt="Workepic Logo" class="logo" id="w-epic">
               </div>
-              <h3 class="report-name">Workepic Index Report for ${data.userProfile.firstName} ${data.userProfile.lastName}</h3>
+              <h3 class="report-name">Workepic Report for ${data.userProfile.firstName} ${data.userProfile.lastName}</h3>
               <div class="report-metadata">
                 <span class="attempt-date">Test Date: ${formatAttemptDate(attempt.timestamp)}</span>
                 <span class="attempt-score">Test Score: ${attempt.score}%</span>
@@ -417,7 +417,7 @@ function displayAdminData(adminData) {
           <img src="https://ubuntex.plus94.tech/assets/Plus94_logo2-CJbCr5Cg.png" alt="Plus94 Logo" class="logo">
           <h1>Ubuntex</h1>
         </div>
-        <h3 class="report-name">Ubuntu Index Report for ${adminData.userProfile?.firstName} ${adminData.userProfile?.lastName}</h3>
+        <h3 class="report-name">Workepic Report for ${adminData.userProfile?.firstName} ${adminData.userProfile?.lastName}</h3>
         <div class="report-metadata">
           <span class="attempt-date">Test Date: ${formatAttemptDate(attempt.timestamp)}</span>
           <span class="attempt-score">Test Score: ${attempt.score}%</span>
