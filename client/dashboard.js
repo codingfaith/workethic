@@ -591,46 +591,46 @@ function formatAttemptDate(timestamp) {
 
 function downloadPDF(button) {
   const element = button.closest(".report-content, .admin-report-content");
-  const originalButtonDisplay = button.style.display;
-  button.style.display = "none";
 
   if (!element) {
-    console.error("Could not find report container");
-    button.style.display = originalButtonDisplay;
+    console.error("Report container not found");
     return;
   }
 
-  // Save original styles
-  const originalStyles = {
-    visibility: element.style.visibility,
-    position: element.style.position,
-    overflow: element.style.overflow,
-    margin: element.style.margin,
-    width: element.style.width,
-    maxWidth: element.style.maxWidth
-  };
+  button.style.display = "none";
 
-  // 👉 Force proper PDF layout width (A4 ≈ 210mm)
-  element.style.visibility = "visible";
-  element.style.position = "static";
-  element.style.overflow = "visible";
-  element.style.margin = "0 auto";
+  // 🔥 CLONE instead of modifying original
+  const clone = element.cloneNode(true);
 
-  // ⚠️ KEY FIX: constrain width to avoid horizontal cutoff
-  element.style.width = "190mm";   // slightly less than A4 width
-  element.style.maxWidth = "190mm";
+  // Create off-screen container
+  const container = document.createElement("div");
+  container.style.position = "fixed";
+  container.style.left = "-9999px";
+  container.style.top = "0";
+  container.style.width = "210mm"; // A4 width
+  container.style.background = "#fff";
+  container.appendChild(clone);
+  document.body.appendChild(container);
+
+  // 🔥 FORCE stable layout
+  clone.style.width = "190mm";
+  clone.style.margin = "0 auto";
+  clone.style.boxSizing = "border-box";
+
+  // Fix flex/grid issues
+  clone.querySelectorAll("*").forEach(el => {
+    el.style.maxWidth = "100%";
+  });
 
   const opt = {
     margin: [10, 10, 15, 10],
-    filename: "ubuntex-report.pdf",
-    image: { type: "jpeg", quality: 0.98 },
+    filename: "workepic-report.pdf",
+    image: { type: "jpeg", quality: 1 },
 
     html2canvas: {
       scale: 2,
       useCORS: true,
-      scrollY: 0,
-      windowWidth: element.scrollWidth,
-      windowHeight: element.scrollHeight
+      letterRendering: true
     },
 
     jsPDF: {
@@ -640,18 +640,17 @@ function downloadPDF(button) {
     },
 
     pagebreak: {
-      mode: ["css", "legacy"],
-      avoid: ["h2", "p", ".section-content", ".point"]
+      mode: ["css", "legacy"]
     }
   };
 
   setTimeout(() => {
     html2pdf()
       .set(opt)
-      .from(element)
+      .from(clone)
       .toPdf()
       .get("pdf")
-      .then((pdf) => {
+      .then(pdf => {
         const pageCount = pdf.internal.getNumberOfPages();
 
         for (let i = 1; i <= pageCount; i++) {
@@ -665,19 +664,21 @@ function downloadPDF(button) {
           );
         }
 
-        // Restore styles
-        Object.assign(element.style, originalStyles);
+        pdf.save("workepic-report");
 
-        pdf.save("ubuntex-report");
+        // cleanup
+        document.body.removeChild(container);
+        button.style.display = "block";
       })
-      .catch((error) => {
-        console.error("PDF generation failed:", error);
-        Object.assign(element.style, originalStyles);
+      .catch(err => {
+        console.error(err);
+        document.body.removeChild(container);
+        button.style.display = "block";
       });
-
-    button.style.display = originalButtonDisplay;
   }, 500);
 }
+
+
 
 // Modified getUserAttemptsWithProfile to work with any user ID
 async function getUserAttemptsWithProfile(userId, db) {
