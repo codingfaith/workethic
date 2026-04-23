@@ -510,83 +510,73 @@ function downloadPDF(button) {
   const element = button.closest(".report-content, .admin-report-content");
   const originalButtonDisplay = button.style.display;
   button.style.display = "none";
-  
+
   if (!element) {
-    console.error("Could not find .report-content or .admin-report-content element relative to button");
+    console.error("Element not found");
     button.style.display = originalButtonDisplay;
     return;
   }
 
-  // Save original styles
-  const originalStyles = {
-    visibility: element.style.visibility,
-    position: element.style.position,
-    overflow: element.style.overflow,
-    margin: element.style.margin
-  };
+  // Clone the element to avoid layout shifts
+  const clone = element.cloneNode(true);
+  clone.style.width = "794px"; // A4 width in px at 96 DPI
+  clone.style.padding = "20px";
+  clone.style.boxSizing = "border-box";
+  clone.style.background = "#fff";
 
-  // Make element visible and centered
-  element.style.visibility = 'visible';
-  element.style.position = 'static';
-  element.style.overflow = 'visible';
-  element.style.margin = '0 auto';
+  document.body.appendChild(clone);
 
   const opt = {
-    margin: [5, 5, 15, 5], // top, left, bottom, right
-    filename: 'workepic-report.pdf',
-    image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { 
+    margin: [10, 10, 15, 10],
+    filename: "workepic-report.pdf",
+    image: { type: "jpeg", quality: 1 },
+    html2canvas: {
       scale: 2,
       useCORS: true,
+      scrollX: 0,
       scrollY: 0,
-      x: 0,
-      y: 0,
-      windowWidth: element.scrollWidth,
-      windowHeight: element.scrollHeight
+      windowWidth: clone.scrollWidth,
+      windowHeight: clone.scrollHeight
     },
-    jsPDF: { 
-      unit: 'mm', 
-      format: 'a4', 
-      orientation: 'portrait'
+    jsPDF: {
+      unit: "mm",
+      format: "a4",
+      orientation: "portrait"
     },
-    pagebreak: { 
-      mode: ['avoid-all', 'h2', 'p.paragraph','span.point', '.section-content']
+    pagebreak: {
+      mode: ["css", "legacy"],
+      avoid: ["h2", "p", "span", ".section-content"]
     }
   };
 
-  setTimeout(() => {
-    html2pdf()
-      .set(opt)
-      .from(element)
-      .toPdf()
-      .get('pdf')
-      .then((pdf) => {
-        console.log('PDF generated successfully');
-        
-        // Add page numbers to each page
-        const pageCount = pdf.internal.getNumberOfPages();
-        for (let i = 1; i <= pageCount; i++) {
-          pdf.setPage(i);
-          pdf.setFontSize(10);
-          pdf.text(
-            `Page ${i} of ${pageCount}`,
-            pdf.internal.pageSize.width / 2,
-            pdf.internal.pageSize.height - 10,
-            { align: 'center' }
-          );
-        }
-        
-        // Restore original styles
-        Object.assign(element.style, originalStyles);
-        
-        // Save the PDF with page numbers
-        pdf.save('workepic-report');
-      })
-      .catch((error) => {
-        console.error('PDF generation failed:', error);
-        Object.assign(element.style, originalStyles);
-      });
-  }, 1000);
+  html2pdf()
+    .set(opt)
+    .from(clone)
+    .toPdf()
+    .get("pdf")
+    .then((pdf) => {
+      const pageCount = pdf.internal.getNumberOfPages();
+
+      for (let i = 1; i <= pageCount; i++) {
+        pdf.setPage(i);
+        pdf.setFontSize(10);
+        pdf.text(
+          `Page ${i} of ${pageCount}`,
+          pdf.internal.pageSize.getWidth() / 2,
+          pdf.internal.pageSize.getHeight() - 10,
+          { align: "center" }
+        );
+      }
+
+      pdf.save("workepic-report.pdf");
+      document.body.removeChild(clone);
+      button.style.display = originalButtonDisplay;
+    })
+    .catch((err) => {
+      console.error(err);
+      document.body.removeChild(clone);
+      button.style.display = originalButtonDisplay;
+    });
 }
 
 // Modified getUserAttemptsWithProfile to work with any user ID
