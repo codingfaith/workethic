@@ -591,136 +591,81 @@ function formatAttemptDate(timestamp) {
 
 function downloadPDF(button) {
   const element = button.closest(".report-content, .admin-report-content");
-  const originalButtonDisplay = button.style.display;
-  button.style.display = "none";
-  
+
   if (!element) {
     console.error("Could not find .report-content or .admin-report-content element relative to button");
-    button.style.display = originalButtonDisplay;
     return;
   }
 
-  // Save original styles
-  const originalStyles = {
-    visibility: element.style.visibility,
-    position: element.style.position,
-    overflow: element.style.overflow,
-    margin: element.style.margin,
-    height: element.style.height,
-    maxHeight: element.style.maxHeight
-  };
+  button.style.display = "none";
 
-  // Make element visible and ensure it's fully expanded
-  element.style.visibility = 'visible';
-  element.style.position = 'static';
-  element.style.overflow = 'visible';
-  element.style.margin = '0 auto';
-  
-  // Remove any height restrictions that might cut content
-  element.style.height = 'auto';
-  element.style.maxHeight = 'none';
+  // Clone the element to avoid mutating the live DOM
+  const clone = element.cloneNode(true);
+  clone.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 794px;
+    max-width: 794px;
+    visibility: visible;
+    overflow: visible;
+    background: white;
+    z-index: -9999;
+    padding: 0;
+    margin: 0;
+  `;
+  document.body.appendChild(clone);
 
   const opt = {
-    margin: [10, 10, 20, 10], // Increased margins to prevent edge cutting (top, right, bottom, left)
+    margin: [5, 5, 15, 5],
     filename: 'workepic-report.pdf',
     image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { 
+    html2canvas: {
       scale: 2,
       useCORS: true,
+      scrollX: 0,
       scrollY: 0,
-      x: 0,
-      y: 0,
-      windowWidth: element.scrollWidth,
-      windowHeight: element.scrollHeight,
-      logging: false,
-      allowTaint: false,
-      backgroundColor: '#ffffff'
+      windowWidth: 794,
     },
-    jsPDF: { 
-      unit: 'mm', 
-      format: 'a4', 
+    jsPDF: {
+      unit: 'mm',
+      format: 'a4',
       orientation: 'portrait'
     },
-    pagebreak: { 
-      mode: ['css', 'legacy'], // Better page break handling
-      before: '.page-break-before',
-      after: '.page-break-after',
-      avoid: ['tr', 'td', 'th', 'h2', 'h3', 'h4', 'img', '.avoid-break']
+    pagebreak: {
+      mode: ['css', 'legacy'],
+      avoid: ['tr', 'li', 'h2', 'h3']
     }
   };
-
-  // Add a temporary class to help with page breaks
-  element.classList.add('pdf-export-mode');
-  
-  // Add styles for better PDF rendering
-  const style = document.createElement('style');
-  style.textContent = `
-    .pdf-export-mode {
-      width: 100%;
-      max-width: 100%;
-      padding: 20px !important;
-      box-sizing: border-box !important;
-    }
-    .pdf-export-mode * {
-      max-width: 100% !important;
-      box-sizing: border-box !important;
-    }
-    .pdf-export-mode img {
-      max-width: 100% !important;
-      height: auto !important;
-    }
-    .pdf-export-mode table {
-      word-wrap: break-word !important;
-      table-layout: fixed !important;
-    }
-    .pdf-export-mode td, 
-    .pdf-export-mode th {
-      word-break: break-word !important;
-      overflow-wrap: break-word !important;
-    }
-  `;
-  document.head.appendChild(style);
 
   setTimeout(() => {
     html2pdf()
       .set(opt)
-      .from(element)
+      .from(clone)
       .toPdf()
       .get('pdf')
       .then((pdf) => {
-        console.log('PDF generated successfully');
-        
-        // Add page numbers to each page
         const pageCount = pdf.internal.getNumberOfPages();
         for (let i = 1; i <= pageCount; i++) {
           pdf.setPage(i);
           pdf.setFontSize(10);
-          pdf.setTextColor(100, 100, 100);
           pdf.text(
             `Page ${i} of ${pageCount}`,
             pdf.internal.pageSize.width / 2,
-            pdf.internal.pageSize.height - 8,
+            pdf.internal.pageSize.height - 5,
             { align: 'center' }
           );
         }
-        
-        // Restore original styles
-        Object.assign(element.style, originalStyles);
-        element.classList.remove('pdf-export-mode');
-        document.head.removeChild(style);
-        button.style.display = originalButtonDisplay;
-        
-        // Save the PDF with page numbers
-        pdf.save('workepic-report');
+        pdf.save('workepic-report.pdf');
       })
       .catch((error) => {
         console.error('PDF generation failed:', error);
-        Object.assign(element.style, originalStyles);
-        element.classList.remove('pdf-export-mode');
-        document.head.removeChild(style);
-        button.style.display = originalButtonDisplay;
+      })
+      .finally(() => {
+        document.body.removeChild(clone);
+        button.style.display = "";
       });
-  }, 500); // Reduced timeout for better performance
+  }, 300);
 }
 
 // Modified getUserAttemptsWithProfile to work with any user ID
