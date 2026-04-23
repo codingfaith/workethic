@@ -506,6 +506,89 @@ function formatAttemptDate(timestamp) {
   return new Date(timestamp.seconds * 1000).toLocaleString();
 }
 
+// function downloadPDF(button) {
+//   const element = button.closest(".report-content, .admin-report-content");
+//   const originalButtonDisplay = button.style.display;
+//   button.style.display = "none";
+  
+//   if (!element) {
+//     console.error("Could not find .report-content or .admin-report-content element relative to button");
+//     button.style.display = originalButtonDisplay;
+//     return;
+//   }
+
+//   // Save original styles
+//   const originalStyles = {
+//     visibility: element.style.visibility,
+//     position: element.style.position,
+//     overflow: element.style.overflow,
+//     margin: element.style.margin
+//   };
+
+//   // Make element visible and centered
+//   element.style.visibility = 'visible';
+//   element.style.position = 'static';
+//   element.style.overflow = 'visible';
+//   element.style.margin = '0 auto';
+
+//   const opt = {
+//     margin: [5, 5, 15, 5], // top, left, bottom, right
+//     filename: 'workepic-report.pdf',
+//     image: { type: 'jpeg', quality: 0.98 },
+//     html2canvas: { 
+//       scale: 2,
+//       useCORS: true,
+//       scrollY: 0,
+//       x: 0,
+//       y: 0,
+//       windowWidth: element.scrollWidth,
+//       windowHeight: element.scrollHeight
+//     },
+//     jsPDF: { 
+//       unit: 'mm', 
+//       format: 'a4', 
+//       orientation: 'portrait'
+//     },
+//     pagebreak: { 
+//       mode: ['avoid-all', 'h2', 'p.paragraph','span.point', '.section-content']
+//     }
+//   };
+
+//   setTimeout(() => {
+//     html2pdf()
+//       .set(opt)
+//       .from(element)
+//       .toPdf()
+//       .get('pdf')
+//       .then((pdf) => {
+//         console.log('PDF generated successfully');
+        
+//         // Add page numbers to each page
+//         const pageCount = pdf.internal.getNumberOfPages();
+//         for (let i = 1; i <= pageCount; i++) {
+//           pdf.setPage(i);
+//           pdf.setFontSize(10);
+//           pdf.text(
+//             `Page ${i} of ${pageCount}`,
+//             pdf.internal.pageSize.width / 2,
+//             pdf.internal.pageSize.height - 10,
+//             { align: 'center' }
+//           );
+//         }
+        
+//         // Restore original styles
+//         Object.assign(element.style, originalStyles);
+        
+//         // Save the PDF with page numbers
+//         pdf.save('workepic-report');
+//       })
+//       .catch((error) => {
+//         console.error('PDF generation failed:', error);
+//         Object.assign(element.style, originalStyles);
+//       });
+//   }, 1000);
+// }
+
 function downloadPDF(button) {
   const element = button.closest(".report-content, .admin-report-content");
   const originalButtonDisplay = button.style.display;
@@ -522,17 +605,23 @@ function downloadPDF(button) {
     visibility: element.style.visibility,
     position: element.style.position,
     overflow: element.style.overflow,
-    margin: element.style.margin
+    margin: element.style.margin,
+    height: element.style.height,
+    maxHeight: element.style.maxHeight
   };
 
-  // Make element visible and centered
+  // Make element visible and ensure it's fully expanded
   element.style.visibility = 'visible';
   element.style.position = 'static';
   element.style.overflow = 'visible';
   element.style.margin = '0 auto';
+  
+  // Remove any height restrictions that might cut content
+  element.style.height = 'auto';
+  element.style.maxHeight = 'none';
 
   const opt = {
-    margin: [5, 5, 15, 5], // top, left, bottom, right
+    margin: [10, 10, 20, 10], // Increased margins to prevent edge cutting (top, right, bottom, left)
     filename: 'workepic-report.pdf',
     image: { type: 'jpeg', quality: 0.98 },
     html2canvas: { 
@@ -542,7 +631,10 @@ function downloadPDF(button) {
       x: 0,
       y: 0,
       windowWidth: element.scrollWidth,
-      windowHeight: element.scrollHeight
+      windowHeight: element.scrollHeight,
+      logging: false,
+      allowTaint: false,
+      backgroundColor: '#ffffff'
     },
     jsPDF: { 
       unit: 'mm', 
@@ -550,9 +642,44 @@ function downloadPDF(button) {
       orientation: 'portrait'
     },
     pagebreak: { 
-      mode: ['avoid-all', 'h2', 'p.paragraph','span.point', '.section-content']
+      mode: ['css', 'legacy'], // Better page break handling
+      before: '.page-break-before',
+      after: '.page-break-after',
+      avoid: ['tr', 'td', 'th', 'h2', 'h3', 'h4', 'img', '.avoid-break']
     }
   };
+
+  // Add a temporary class to help with page breaks
+  element.classList.add('pdf-export-mode');
+  
+  // Add styles for better PDF rendering
+  const style = document.createElement('style');
+  style.textContent = `
+    .pdf-export-mode {
+      width: 100%;
+      max-width: 100%;
+      padding: 20px !important;
+      box-sizing: border-box !important;
+    }
+    .pdf-export-mode * {
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    .pdf-export-mode img {
+      max-width: 100% !important;
+      height: auto !important;
+    }
+    .pdf-export-mode table {
+      word-wrap: break-word !important;
+      table-layout: fixed !important;
+    }
+    .pdf-export-mode td, 
+    .pdf-export-mode th {
+      word-break: break-word !important;
+      overflow-wrap: break-word !important;
+    }
+  `;
+  document.head.appendChild(style);
 
   setTimeout(() => {
     html2pdf()
@@ -568,16 +695,20 @@ function downloadPDF(button) {
         for (let i = 1; i <= pageCount; i++) {
           pdf.setPage(i);
           pdf.setFontSize(10);
+          pdf.setTextColor(100, 100, 100);
           pdf.text(
             `Page ${i} of ${pageCount}`,
             pdf.internal.pageSize.width / 2,
-            pdf.internal.pageSize.height - 10,
+            pdf.internal.pageSize.height - 8,
             { align: 'center' }
           );
         }
         
         // Restore original styles
         Object.assign(element.style, originalStyles);
+        element.classList.remove('pdf-export-mode');
+        document.head.removeChild(style);
+        button.style.display = originalButtonDisplay;
         
         // Save the PDF with page numbers
         pdf.save('workepic-report');
@@ -585,10 +716,12 @@ function downloadPDF(button) {
       .catch((error) => {
         console.error('PDF generation failed:', error);
         Object.assign(element.style, originalStyles);
+        element.classList.remove('pdf-export-mode');
+        document.head.removeChild(style);
+        button.style.display = originalButtonDisplay;
       });
-  }, 1000);
+  }, 500); // Reduced timeout for better performance
 }
-
 
 // Modified getUserAttemptsWithProfile to work with any user ID
 async function getUserAttemptsWithProfile(userId, db) {
