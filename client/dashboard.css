@@ -284,3 +284,15 @@
     font-size: smaller;
    }
 }
+.report-content, .admin-report-content {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.section-content {
+  page-break-inside: avoid;
+}
+
+h2 {
+  page-break-after: avoid;
+}
