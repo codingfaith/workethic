@@ -236,10 +236,11 @@
   justify-content: space-between;
 }
 #w-epic {
-  max-width: 150px;
   align-self: center;
 }
-
+#report-logo{
+  max-width: 100px;
+}
 .report-metadata {
   box-shadow: 1px 1px 2px 2px #ccc;
 }

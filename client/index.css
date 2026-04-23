@@ -19,7 +19,7 @@ body {
     justify-content: space-between;
 }
 .logo {
-    max-width: 100px;
+    max-width: 150px;
 }
 .ubuntu-logo p {
     font-size: 3rem;
