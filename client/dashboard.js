@@ -297,7 +297,7 @@ function displayData(data) {
             </button>
             <div class="report-content hide" id="report-${index}">
               <div class="report-heading">
-                <img src="http://workepic.plus94.tech/assets/Plus94_logo2.png" alt="Plus94 Logo" class="logo">
+                <img src="https://ubuntex.plus94.tech/assets/Plus94_logo2-CJbCr5Cg.png" alt="Plus94 Logo" class="logo">
                 <img src="https://workepic.netlify.app/assets/WorkEpic-DMG8B8qx.png" alt="Workepic Logo" class="logo" id="w-epic">
               </div>
               <h3 class="report-name">Workepic Report for ${data.userProfile.firstName} ${data.userProfile.lastName}</h3>
@@ -414,7 +414,7 @@ function displayAdminData(adminData) {
       </div>
       <div class="admin-report-content hide" id="admin-report-${index}">
         <div class="report-heading">
-          <img src="http://workepic.plus94.tech/assets/Plus94_logo2.png" alt="Plus94 Logo" class="logo">
+          <img src="https://ubuntex.plus94.tech/assets/Plus94_logo2-CJbCr5Cg.png" alt="Plus94 Logo" class="logo">
           <img src="https://workepic.netlify.app/assets/WorkEpic-DMG8B8qx.png" alt="Workepic Logo" class="logo" id="w-epic">
         </div>
         <h3 class="report-name">Workepic Report for ${adminData.userProfile?.firstName} ${adminData.userProfile?.lastName}</h3>
