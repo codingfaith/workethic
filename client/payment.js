@@ -11,6 +11,10 @@ export function payWithPaystack(attemptNumber = null) {
         amount: 9900, 
         currency: 'ZAR',
         ref: 'tx_' + Math.floor((Math.random() * 1000000000) + 1), // Unique transaction reference
+        metadata: {
+            userId: user.uid,
+            project: "projectB"
+        },
         callback: function(response) {
 
             // Update the most recent attempt in Firestore
@@ -35,7 +39,7 @@ export function payWithPaystack(attemptNumber = null) {
                                 paymentTimestamp: firebase.firestore.FieldValue.serverTimestamp()
                             }).then(() => {
                                 // Redirect to results page
-                                window.location.replace("https://ubuntex.plus94.tech/dashboard");
+                                window.location.replace("https://workepic.netlify.app/dashboard");
                             }).catch((error) => {
                                 console.error('Error updating attempt:', error);
                                 alert('Payment recorded, but failed to update attempt. Contact support.');
