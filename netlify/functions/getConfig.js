@@ -1,12 +1,12 @@
 // netlify/functions/getConfig.js
 exports.handler = async () => {
   const config = {
-    apiKey: process.env.FIREBASE_B_API_KEY,
-    authDomain: process.env.FIREBASE_B_AUTH_DOMAIN,
-    projectId: process.env.FIREBASE_B_PROJECT_ID,
-    storageBucket: process.env.FIREBASE_B_STORAGE_BUCKET,
-    messagingSenderId: process.env.FIREBASE_B_MESSAGING_SENDER_ID,
-    appId: process.env.FIREBASE_B_APP_ID,
+    apiKey: process.env.FBB_API_KEY,
+    authDomain: process.env.FBB_AUTH_DOMAIN,
+    projectId: process.env.FBB_PROJECT_ID,
+    storageBucket: process.env.FBB_STRG_BKT,
+    messagingSenderId: process.env.FBB_MSG_SENDER_ID,
+    appId: process.env.FBB_APP_ID,
   };
 
   const missing = Object.entries(config).filter(([key, value]) => !value);
@@ -17,7 +17,6 @@ exports.handler = async () => {
       body: JSON.stringify({ error: "Missing Firebase config values", missing: missing.map(([k]) => k) })
     };
   }
-
   return {
     statusCode: 200,
     body: JSON.stringify({ firebaseConfig: config })
