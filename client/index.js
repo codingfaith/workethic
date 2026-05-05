@@ -689,7 +689,7 @@ class WorkepicIndex {
     - Use proper markdown headers (##) for each section
     - Bold important terms like "work ethic" or "productivity"
     - Include specific examples from responses when possible
-    - Tone of report should address the individual test taker in third party (using words like "The candidate displays") not generalise.
+    - Tone of report should address the individual test taker in third party (using words like "The candidate displays") not generalise and all spelling should be in UK English.
     
     Test Responses:
     ${JSON.stringify(reportData.responses, null, 2)}
