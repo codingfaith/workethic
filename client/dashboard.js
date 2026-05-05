@@ -434,7 +434,7 @@ function displayAdminData(adminData) {
             <span>Level 2 : Scores 83.50% to 87.49%</span>
             <span>Level 1 : Scores 87.50% and above</span>
           </div>
-          <p>I am, because we are!</p>  
+          <p>My effort builds our collective excellence!</p>  
         </div>
         <button class="downloadReportBtn">Download Report</button>
       </div><br><br>
@@ -448,10 +448,10 @@ function displayAdminData(adminData) {
             </tr>
           </thead>
           <tbody>
-            ${attempt.answers.map(answer => `
+            ${attempt.responses.map(response => `
               <tr>
-                <td>${answer.question}</td>
-                <td>${answer.userAnswer}</td>
+                <td>${response.question}</td>
+                <td>${response.answer}</td>
               </tr>
             `).join('')}
           </tbody>
