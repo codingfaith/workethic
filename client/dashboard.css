@@ -275,12 +275,12 @@
 }
 
 .answers-table th {
-  background: #151825;
+  background: rgb(251, 180, 64);
 }
 .answers-table tbody tr:nth-child(even) {
-  background-color: #2b304a;
+  background-color: violet;
 }.answers-table tbody tr:nth-child(odd) {
-  background-color: #394062;
+  background-color: #8551b6;
 }
 .landing-container {
     background: #8551b6;
