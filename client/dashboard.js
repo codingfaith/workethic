@@ -298,7 +298,6 @@ function displayData(data) {
             <div class="report-content hide" id="report-${index}">
               <div class="report-heading">
                 <img src="/Plus94_logo2.png" alt="Plus94 Logo" class="logo" id="report-logo">
-                <img src="WorkEpic.png" alt="Workepic Logo" class="logo" id="w-epic">
               </div>
               <h3 class="report-name">Workepic Report for ${data.userProfile.firstName} ${data.userProfile.lastName}</h3>
               <div class="report-metadata">
@@ -701,3 +700,4 @@ if (document.readyState !== 'loading') {
 } else {
   document.addEventListener('DOMContentLoaded', initDashboard);
 }
+// <img src="/WorkEpic.png" alt="Workepic Logo" class="logo" id="w-epic">
