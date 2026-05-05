@@ -444,7 +444,7 @@ function displayAdminData(adminData) {
           <thead>
             <tr>
               <th>Question</th>
-              <th>User Answer</th>
+              <th>Response</th>
             </tr>
           </thead>
           <tbody>
