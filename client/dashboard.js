@@ -415,7 +415,7 @@ function displayAdminData(adminData) {
       <div class="admin-report-content hide" id="admin-report-${index}">
         <div class="report-heading">
           <img src="/Plus94_logo2.png" alt="Plus94 Logo" class="logo" id="report-logo">
-          <img src="https://workepic.netlify.app/assets/WorkEpic-DMG8B8qx.png" alt="Workepic Logo" class="logo" id="w-epic">
+          <img src="/WorkEpic.png" alt="Workepic Logo" class="logo" id="w-epic">
         </div>
         <h3 class="report-name">Workepic Report for ${adminData.userProfile?.firstName} ${adminData.userProfile?.lastName}</h3>
         <div class="report-metadata">
