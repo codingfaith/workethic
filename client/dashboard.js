@@ -298,7 +298,7 @@ function displayData(data) {
             <div class="report-content hide" id="report-${index}">
               <div class="report-heading">
                 <img src="/Plus94_logo2.png" alt="Plus94 Logo" class="logo" id="report-logo">
-                <img src="/WorkEpic2.png" alt="Workepic Logo" class="logo" id="w-epic">
+                <img src="/WorkEpic.png" alt="Workepic Logo" class="logo" id="w-epic">
               </div>
               <h3 class="report-name">Workepic Report for ${data.userProfile.firstName} ${data.userProfile.lastName}</h3>
               <div class="report-metadata">
