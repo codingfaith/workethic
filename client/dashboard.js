@@ -448,10 +448,10 @@ function displayAdminData(adminData) {
             </tr>
           </thead>
           <tbody>
-            ${attempt.responses.map(response => `
+            ${attempt.answers.map(answer => `
               <tr>
-                <td>${response.question}</td>
-                <td>${response.answer}</td>
+                <td>${answer.question}</td>
+                <td>${answer.answer}</td>
               </tr>
             `).join('')}
           </tbody>
