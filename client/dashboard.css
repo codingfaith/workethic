@@ -215,6 +215,9 @@
   color: #ffffff;
   text-align: center;
 }
+#message {
+  text-shadow: 1px 1px #000000;
+}
 .report-name,
 .report-metadata p,
 .report-metadata span,
