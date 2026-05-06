@@ -386,9 +386,7 @@ class WorkepicIndex {
             this.currentIndex++;
             this.showQuestion();
         };
-        console.log(this.responses)
     }
-    
 
     // Update progress bar
         const progressPercentage = `${this.currentIndex + 1}` / totalQuestions * 100;
@@ -401,12 +399,15 @@ class WorkepicIndex {
             : "Next";
         
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        console.log(this.responses);
     }
 
     
     async calculateScore() {
+        console.log("Calculating final score with OpenAI...");
         try {
             const result = await this.fetchScoreFromOpenAI(this.responses);
+            console.log(result?result : "No result returned from scoring API");
 
             if (result.error || result.finalScore === null) {
                 alert("We couldn't calculate your score. Please try again.");
