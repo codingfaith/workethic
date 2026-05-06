@@ -162,7 +162,7 @@ class WorkepicIndex {
                 scale: 10,
                 type: "scale"
             },{
-                text: "Finally, in a work environment what situations to you seek to affect the most, and how?", //24
+                text: "Finally, in a workplace setting, which situations do you aim to influence the most, and how do you approach doing so?", //24
                 type: "open-ended",
             },{
                 
