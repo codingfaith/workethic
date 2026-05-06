@@ -194,6 +194,7 @@ class WorkepicIndex {
 
 
     async fetchScoreFromOpenAI(responses) {
+        console.log("Sending responses to OpenAI for scoring...");
         try {
             const response = await fetch("/api/openai-proxy", {
                 method: "POST",
@@ -213,8 +214,9 @@ class WorkepicIndex {
             if (!result || result.finalScore === undefined || result.finalScore === null) {
                 throw new Error("Invalid scoring response");
             }
-
+            console.log("result:", result);
             return result;
+            
 
         } catch (error) {
             console.error("Batch scoring failed:", error);
