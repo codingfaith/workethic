@@ -387,6 +387,7 @@ class WorkepicIndex {
             this.showQuestion();
         };
     }
+    console.log(responses)
 
     // Update progress bar
         const progressPercentage = `${this.currentIndex + 1}` / totalQuestions * 100;
