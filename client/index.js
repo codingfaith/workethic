@@ -710,7 +710,7 @@ class WorkepicIndex {
         return report || "No report could be generated.";
     } catch (error) {
         console.error("Error generating report:", error);
-        return "Report Unavailable\nWe couldn't generate a detailed report at this time.";
+        return "Report Unavailable. We couldn't generate a detailed report at this time.";
     }
 }
 }

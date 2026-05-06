@@ -18,14 +18,14 @@ const makeOpenAIRequest = async (prompt, type = "score") => {
                     { role: "user", content: prompt }
                 ],
                 temperature: isReport ? 0.5 : 0.2,
-                max_tokens: isReport ? 800 : 500
+                max_tokens: isReport ? 500 : 300
             },
             {
                 headers: {
                     'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
                     'Content-Type': 'application/json'
                 },
-                timeout: isReport ? 20000 : 12000
+                timeout: isReport ? 10000 : 9000 // longer timeout for report generation
             }
         );
 
