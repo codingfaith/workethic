@@ -175,7 +175,7 @@ class WorkepicIndex {
     }
 
     checkTestCompletion() {
-        const testCompleted = localStorage.getItem('ubuntexTestCompleted');
+        const testCompleted = localStorage.getItem('workepicTestCompleted');
         if (testCompleted === 'true') {
             this.showCompletionMessage();
             return;
@@ -401,15 +401,12 @@ class WorkepicIndex {
             : "Next";
         
         window.scrollTo({ top: 0, behavior: 'smooth' });
-        console.log(this.responses);
     }
 
     
     async calculateScore() {
-        console.log("Calculating final score with OpenAI...");
         try {
             const result = await this.fetchScoreFromOpenAI(this.responses);
-            console.log(result?result : "No result returned from scoring API");
 
             if (result.error || result.finalScore === null) {
                 alert("We couldn't calculate your score. Please try again.");
@@ -419,7 +416,7 @@ class WorkepicIndex {
             console.log("Scores:", result.scores);
             console.log("Final Score:", result.finalScore);
 
-            localStorage.setItem('ubuntexTestCompleted', 'true');
+            localStorage.setItem('workepicTestCompleted', 'true');
 
             this.displayResults(result.finalScore);
 
@@ -469,18 +466,18 @@ class WorkepicIndex {
                 // Add longer delay to allow Firestore commit on iOS Safari
                 const delay = /iPhone|iPad|iPod/i.test(navigator.userAgent) ? 5000 : 3000;
                 setTimeout(() => {
-                    window.location.replace("https://ubuntex.plus94.tech/payment");
+                    window.location.replace("https://workepic.plus94.tech/payment");
                 }, delay);
 
             } else {
             this.storeLocalForLaterSync(score, finalReport || "Report unavailable");
-            window.location.replace("https://ubuntex.plus94.tech");
+            window.location.replace("https://workepic.plus94.tech");
             }
         } catch (error) {
             loadingIndicator.style.display = "none";
             console.error("Error generating report or saving to Firestore:", error);
             this.storeLocalForLaterSync(score, finalReport || "Report unavailable");
-            window.location.replace("https://ubuntex.plus94.tech");
+            window.location.replace("https://workepic.plus94.tech");
         }
     }
 
