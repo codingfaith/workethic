@@ -11,11 +11,6 @@ export function payWithPaystack(attemptNumber = null) {
         amount: 9900, 
         currency: 'ZAR',
         ref: 'tx_' + Math.floor((Math.random() * 1000000000) + 1), // Unique transaction reference
-        metadata: {
-            userId: user.uid,
-            project: "projectB",
-            attemptNumber: attemptNumber || null
-        },
         callback: function(response) {
 
             // Update the most recent attempt in Firestore
