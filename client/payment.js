@@ -6,7 +6,7 @@ export function payWithPaystack(attemptNumber = null) {
     const email = user.email;
 
     let handler = PaystackPop.setup({
-        key: 'pk_live_7752e289054750e49dadba1b158c1b7c9c676846', 
+        key: 'pk_live_99e317abc71abf454c9ac9bf63e6374312cbad69', 
         email: email,
         amount: 9900, 
         currency: 'ZAR',
