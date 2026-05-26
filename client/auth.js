@@ -395,7 +395,7 @@ function getFriendlyError(error) {
       return 'Too many attempts. Try again later';
     default:
       console.warn('Unhandled auth error:', code);
-      return 'An error occurred. Please try again.';
+      return 'An error occurred. Please sign up or try again.';
   }
 }
 
