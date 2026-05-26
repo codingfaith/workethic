@@ -339,6 +339,8 @@ function displayData(data) {
     dashboardResult.classList.remove("hide");
     dashboardResult.classList.add("show");
     resultsBtnTxt.textContent = "←Go back";
+    dashboardImg.classList.remove("show");
+    dashboardImg.classList.add("hide");
   }
   localStorage.removeItem("paymentStatus");
   document.querySelectorAll('.downloadReportBtn').forEach(btn => {
