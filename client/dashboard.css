@@ -177,10 +177,6 @@
   font-style: italic;
   text-align: center;
 }
-.pay-to-access-btn:hover {
-  color: white;
-  background: #8551b6;
-}
 
 /* iPhone fixes */
 /* Prevent touch highlights */
