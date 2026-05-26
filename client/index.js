@@ -487,10 +487,6 @@ class WorkepicIndex {
             this.storeLocalForLaterSync(score, finalReport || "Report unavailable");
             window.location.replace("https://workepic.plus94.tech");
         }
-        if (dashboardResult.classList.contains("hide")) {
-            dashboardResult.classList.remove("hide");
-            dashboardResult.classList.add("show");
-        }
     }
 
     // Helper method to save data to Firestore
