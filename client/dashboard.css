@@ -44,10 +44,7 @@
 .downloadReportBtn:hover, 
 #dashboard-results:hover,
 .report-toggle-btn:hover,
-.pay-to-access-btn:hover {
-  color: white;
-  background: #8551b6;
-}
+.pay-to-access-btn:hover,
 .admin-report-toggle:hover,
 .admin-answers-toggle:hover {
   color: #fbb440;
