@@ -399,6 +399,14 @@ class WorkepicIndex {
         nextBtn.textContent = this.currentIndex === totalQuestions - 1
             ? "Submit and See Results" 
             : "Next";
+
+        // Disable button after submission click
+        if (this.currentIndex === totalQuestions - 1) {
+            nextBtn.addEventListener("click", () => {
+                nextBtn.disabled = true;
+                nextBtn.textContent = "Submitting...";
+            }, { once: true });
+        }
         
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -478,6 +486,10 @@ class WorkepicIndex {
             console.error("Error generating report or saving to Firestore:", error);
             this.storeLocalForLaterSync(score, finalReport || "Report unavailable");
             window.location.replace("https://workepic.plus94.tech");
+        }
+        if (dashboardResult.classList.contains("hide")) {
+            dashboardResult.classList.remove("hide");
+            dashboardResult.classList.add("show");
         }
     }
 

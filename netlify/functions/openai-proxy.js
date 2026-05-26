@@ -25,7 +25,7 @@ const makeOpenAIRequest = async (prompt, type = "score") => {
                     'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
                     'Content-Type': 'application/json'
                 },
-                timeout: isReport ? 10000 : 9000 // longer timeout for report generation
+                timeout: isReport ? 12000 : 10000 // longer timeout for report generation
             }
         );
 
