@@ -506,7 +506,7 @@ function getFriendlyError(error) {
     // Default catch-all
     default:
       console.warn('Unhandled auth error:', code); // Log unknown errors
-      return typeof error === 'string' ? error : 'Login failed. Please try again';
+      return typeof error === 'string' ? error : 'Login failed. Please sign-up or try again';
   }
 }
 
