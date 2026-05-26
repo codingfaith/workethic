@@ -35,6 +35,7 @@ export function payWithPaystack(attemptNumber = null) {
                                 paymentTimestamp: firebase.firestore.FieldValue.serverTimestamp()
                             }).then(() => {
                                 // Redirect to results page
+                                localStorage.setItem("paymentStatus", "true");
                                 window.location.replace("https://workepic.plus94.tech/dashboard");
                             }).catch((error) => {
                                 console.error('Error updating attempt:', error);
