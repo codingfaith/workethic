@@ -44,6 +44,10 @@
 .downloadReportBtn:hover, 
 #dashboard-results:hover,
 .report-toggle-btn:hover,
+.pay-to-access-btn:hover {
+  color: white;
+  background: #8551b6;
+}
 .admin-report-toggle:hover,
 .admin-answers-toggle:hover {
   color: #fbb440;
@@ -174,8 +178,7 @@
   text-align: center;
 }
 .pay-to-access-btn:hover {
-  color: white;
-  background: #8551b6;
+  color:#fbb440;
 }
 
 /* iPhone fixes */
