@@ -218,11 +218,11 @@
 .report-name,
 .report-metadata p,
 .report-metadata span,
-.ubuntex p {
+.ubuntex-classification p {
   text-align: center;
 }
 .report-metadata span,
-.ubuntex span {
+.ubuntex-classification span {
   display: block;
 }
 .spanContainer {
@@ -230,7 +230,6 @@
   width: fit-content;
   letter-spacing: 1px;
   font-family: "Roboto", sans-serif;
-  border:1px solid red;
 }
 .report-heading {
   display: flex;
