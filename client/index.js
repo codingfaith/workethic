@@ -73,7 +73,7 @@ class WorkepicIndex {
                     A: ["I mainly respond to instructions and requests"],
                     B: ["I sometimes initiate ideas or improvements"],
                     C: ["I frequently initiate change and drive action"],
-                    D: ["I naturally lead and mobilize others"]
+                    D: ["I naturally lead and mobilise others"]
                 },
                 type: "multiple-choice"
             },{
