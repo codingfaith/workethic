@@ -230,6 +230,7 @@
   width: fit-content;
   letter-spacing: 1px;
   font-family: "Roboto", sans-serif;
+  border:1px solid red;
 }
 .report-heading {
   display: flex;
