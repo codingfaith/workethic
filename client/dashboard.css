@@ -41,7 +41,6 @@
 #redirect-link:hover,
 .view-user-btn:hover,
 .last-reportBtn:hover,
-.downloadReportBtn:hover, 
 #dashboard-results:hover,
 .report-toggle-btn:hover,
 .pay-to-access-btn:hover,
@@ -49,6 +48,10 @@
 .admin-answers-toggle:hover {
   color: #fbb440;
   background: #ffffff;
+}
+.downloadReportBtn:hover {
+  color: #8551b6;
+  background: #fbb440;
 }
 #dashboard-assess,
 #dashboard-assessAdmin {

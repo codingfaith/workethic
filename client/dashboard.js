@@ -522,8 +522,12 @@ function downloadPDF(button) {
     return;
   }
 
-  const originalButtonDisplay = button.style.display;
-  button.style.display = "none";
+  const originalButtonText = button.textContent;
+  const originalDisabledState = button.disabled;
+
+  // Change button state
+  button.textContent = "Downloading...";
+  button.disabled = true;
 
   // Save original styles
   const originalStyles = {
@@ -594,7 +598,8 @@ function downloadPDF(button) {
       .finally(() => {
         // Restore everything
         Object.assign(element.style, originalStyles);
-        button.style.display = originalButtonDisplay;
+        button.textContent = originalButtonText;
+        button.disabled = originalDisabledState;
       });
   }, 300);
 }
