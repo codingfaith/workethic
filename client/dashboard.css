@@ -218,11 +218,11 @@
 .report-name,
 .report-metadata p,
 .report-metadata span,
-.workepic-classification p {
+.ubuntex p {
   text-align: center;
 }
 .report-metadata span,
-.workepic-classification span {
+.ubuntex span {
   display: block;
 }
 .spanContainer {

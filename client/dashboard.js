@@ -308,7 +308,7 @@ function displayData(data) {
               </div>
 
               ${formatText(attempt.report)}
-              <div class="workepic-classification">
+              <div class="ubuntex-classification">
                 <p><strong>Workepic Classification Breakdown</strong></p>
                 <div class="spanContainer">
                   <span>Level 6 : Scores under 65.50%</span>
@@ -433,7 +433,7 @@ function displayAdminData(adminData) {
           <span class="attempt-class">Classification: ${attempt.classification}</span>
         </div> 
         ${formatText(attempt.report)}
-        <div class="workepic-classification">
+        <div class="ubuntex-classification">
           <p><strong>Workepic Classification Breakdown</strong></p>
           <div class="spanContainer">
             <span>Level 6 : Scores under 65.50%</span>
