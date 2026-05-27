@@ -1,7 +1,7 @@
 
 import { initializeFirebase } from './auth.js';
 
-const totalQuestions = 24;
+const totalQuestions = 30;
 const progress = document.getElementById("progress");
 const progressText = document.getElementById("progress-text");
 
@@ -9,28 +9,104 @@ class WorkepicIndex {
     constructor() {
         this.questions = [
             {
-                text: "When starting a new task, I usually:", //1
+                text: "Where would you ideally like to position yourself economically or professionally relative to others in your society?", //1
                 choices: {
-                    A: ["Spend time planning before beginning"],
-                    B: ["Start quickly and adjust as I go"],
+                    A: ["Top 1%"],
+                    B: ["Top 10%"],
+                    C: ["Top 25%"],
+                    D: ["Top 50%"],
+                    E: ["Average is acceptable"],
+                    F: ["It does not matter to me"]
                 },
                 type: "multiple-choice"
             },{
-                text: "I feel most satisfied when:", //2
+                text: "How important is personal success to you and why?", //2
+                type: "open-ended"
+            },{
+                text: "How ambitious do you consider yourself to be? 1 = Not at all, 10 = Extremely ambitious", //3
+                scale: 10,
+                type: "scale"
+            },{
+                text: "Do you believe most people can significantly improve their position in life through effort and discipline?", //4
                 choices: {
-                    A: ["I complete something thoroughly"],
-                    B: ["I make significant progress quickly"],
+                    A: ["Strongly agree"],
+                    B: ["Agree"],
+                    C: ["Neutral"],
+                    D: ["Disagree"],
+                    E: ["Strongly disagree"]
                 },
                 type: "multiple-choice"
             },{
-                text: "When given instructions, I prefer to:", //3
+                text: "How many years are you prepared to work consistently in pursuit of your major life goals?", //5
                 choices: {
-                    A: ["Follow them closely"],
-                    B: ["Adapt them if I see a better way "],
+                    A: ["Less than 1 year"],
+                    B: ["1-3 years"],
+                    C: ["4-10 years"],
+                    D: ["More than 10 years"],
+                    E: ["Most of my adult life if necessary"]
+                },
+                type: "multiple-choice"
+            },
+            {
+                text: "Would you continue pursuing a goal if progress is slower than expected?", //6
+                choices: {
+                    A: ["Definitely yes"],
+                    B: ["Probably yes"],
+                    C: ["Unsure"],
+                    D: ["Probably not"],
+                    E: ["Definitely not"]
                 },
                 type: "multiple-choice"
             },{
-                text: " I review my work before submitting it", //4
+                text: "Which statement best reflects your thinking?", //7
+                choices: {
+                    A: ["Success usually takes a long time"],
+                    B: ["Success should come quickly if one is talented"],
+                    C: ["Luck matters more than time"],
+                    D: ["Connections matter more than effort"],
+                    E: ["Hard work alone guarantees success"]
+                },
+                type: "multiple-choice"
+            },{
+                text: "Which best describes how you see yourself in professional or organisational settings?", //8
+                choices: {
+                    A: ["I mainly respond to instructions and requests"],
+                    B: ["I sometimes initiate ideas or improvements"],
+                    C: ["I frequently initiate change and drive action"],
+                    D: ["I naturally lead and mobilize others"]
+                },
+                type: "multiple-choice"
+            },{
+                text: "Can you provide examples where you initiated something without being instructed to do so?", //9
+                type: "open-ended"
+            },{
+                text: "How comfortable are you taking responsibility for difficult outcomes? 1 = Very uncomfortable, 10 = Very comfortable", //10
+                scale: 10,
+                type: "scale"
+            },{
+                text: " What does hard work mean to you?", //11
+                type: "open-ended"
+            },{ 
+                text: "Which statement do you agree with most?", //12
+                choices: {
+                    A: ["Smart work is more important than hard work"],
+                    B: ["Hard work is more important than smart work"],
+                    C: ["Both matter equally"],
+                    D: ["Neither guarantees success"]
+                },
+                type: "multiple-choice"
+            },{ 
+                text: "Would you willingly sacrifice leisure, comfort, or entertainment for long-term success?", //13
+                choices: {
+                    A: ["Definitely yes"],
+                    B: ["Probably yes"],
+                    C: ["Unsure"],
+                    D: ["Probably not"],
+                    E: ["Definitely not"]
+                },
+                type: "multiple-choice"
+            },{ 
+                text: "I track my own progress without being asked", //14
                 choices: {
                     A: ["Never "],
                     B: ["Rarely"],
@@ -39,134 +115,127 @@ class WorkepicIndex {
                 },
                 type: "multiple-choice"
             },{ 
-                text: "I begin tasks ahead of deadlines", //5
-                choices: {
-                    A: ["Never "],
-                    B: ["Rarely"],
-                    C: ["Sometimes "],
-                    D: ["Almost Always"]
-                },
-                type: "multiple-choice"
-            },{ 
-                text: "I continue working on tasks even when I lose interest", //6
-                choices: {
-                    A: ["Never "],
-                    B: ["Rarely"],
-                    C: ["Sometimes "],
-                    D: ["Almost Always"]
-                },
-                type: "multiple-choice"
-            },{ 
-                text: "I track my own progress without being asked", //7
-                choices: {
-                    A: ["Never "],
-                    B: ["Rarely"],
-                    C: ["Sometimes "],
-                    D: ["Almost Always"]
-                },
-                type: "multiple-choice"
-            },{ 
-                text: "If you had limited time, which would you prioritize?", //8
+                text: "If you had limited time, which would you prioritize?", //15
                 choices: {
                     A: ["Completing all tasks, even if some are imperfect"],
                     B: ["Ensuring fewer tasks are completed at a high standard"]
                 },
                 type: "multiple-choice"
             },{
-                text: "When facing a difficult task, you are more likely to:", //9
+                text: "When facing a difficult task, you are more likely to:", //16
                 choices: {
                     A: ["Break it into smaller steps and keep going "],
                     B: ["Pause and return later with a fresh perspective"]
                 },
                 type: "multiple-choice"
             },{
-                text: "If a deadline seems unrealistic:", //10
+                text: "When facing setbacks, what do you typically do?", //17
+                choices: {
+                    A: ["Withdraw temporarily"],
+                    B: ["Wait for support"],
+                    C: ["Reassess and adapt"],
+                    D: ["Push harder immediately"]
+                },
+                type: "multiple-choice"
+            },{
+                text: "If a deadline seems unrealistic:", //18
                 choices: {
                     A: ["Start immediately and do what's possible"],
                     B: ["Reassess and adjust expectations first"]
                 },
                 type: "multiple-choice"
             },{
-                text: "When a project doesn't go as planned, my first thought is:", //11
+                text: "When a project doesn't go as planned, my first thought is:", //19
                 choices: {
                     A: ["What could I have done differently"],
                     B: ["What factors affected the outcome"]
                 },
                 type: "multiple-choice"
             },{
-                text: "When working in a team, I usually:", //12
+                text: "When working in a team, I usually:", //20
                 choices: {
                     A: ["Focus on my responsibilities"],
                     B: ["Stay aware of how others are progressing"]
                 },
                 type: "multiple-choice"
             },{
-                text: "On days when I don't feel motivated:", //13
+                text: "On days when I don't feel motivated:", //21
                 choices: {
                     A: ["I focus on completing at least key tasks"],
                     B: ["I adjust my workload to match my energy"]
                 },
                 type: "multiple-choice"
             },{
-                text: "When a task becomes repetitive:", //14
-                choices: {
-                    A: ["I find ways to stay consistent"],
-                    B: ["I lose focus and switch tasks more often"]
-                },
-                type: "multiple-choice"
-            },{
-                text: "After completing a task, I typically:", //15
+                text: "After completing a task, I typically:", //22
                 choices: {
                     A: ["Move on to the next task"],
                     B: ["Think about how it could be improved"]
                 },
                 type: "multiple-choice"
             },{
-                text: "Explain how you actively look for ways to improve how you work:", //16
-                type: "open-ended"
-            },{
-                text: "You are given a task with unclear instructions. You:", //17
+                text: "You are given a task with unclear instructions. You:", //23
                 choices: {
                     A: ["Start and figure things out along the way"],
                     B: ["Seek clarification before proceeding"]
                 },
                 type: "multiple-choice"
             },{
-                text: "A teammate is falling behind and it may affect you. You:", //18
+                text: "A teammate is falling behind and it may affect you. You:", //24
                 choices: {
                     A: ["Focus on ensuring your work is done"],
                     B: ["Step in to help or raise the issue"]
                 },
                 type: "multiple-choice"
             },{
-                text: "You finish a task earlier than expected. You:", //19
+                text: "You finish a task earlier than expected. You:", //25
                 choices: {
                     A: ["Move on to the next assigned task"],
                     B: ["Review or improve what you've done"]
                 },
                 type: "multiple-choice"
             },{
-                text: "Rank what matters most in how you work. Completing tasks quickly:", //20
-                scale: 10,
-                type: "scale"
+                text: "What is merit?", //20
+                type: "open-ended"
             },{
-                text: "Rank what matters most in how you work. Producing high-quality work:", //21
-                scale: 10,
-                type: "scale"
+                text: "Do you believe merit should matter in hiring and promotion decisions?", //26
+                choices: {
+                    A: ["Strongly yes"],
+                    B: ["Mostly yes"],
+                    C: ["Sometimes"],
+                    D: ["Not really"],
+                    E: ["No"]
+                },
+                type: "multiple-choice"
             },{
-                text: "Rank what matters most in how you work. Meeting commitments consistently", //22
-                scale: 10,
-                type: "scale"
+                text: "In your opinion, what should be the MOST important basis for promotion?", //27
+                choices: {
+                    A: ["Performance/results"],
+                    B: ["Experience"],
+                    C: ["Qualifications"],
+                    D: ["Loyalty"],
+                    E: ["Seniority"],
+                    F: ["Relationships/connections"],
+                    G: ["Representation/equity"],
+                    H: ["Leadership potential"]
+                },
+                type: "multiple-choice"
             },{
-                text: "Rank what matters most in how you work. Finding better ways to do things", //23
-                scale: 10,
-                type: "scale"
+               text: "If factors other than merit should matter, what should these factors be and why?", //28
+               type: "open-ended" 
             },{
-                text: "Finally, in a workplace setting, which situations do you aim to influence the most, and how do you approach doing so?", //24
-                type: "open-ended",
+                 text: "Which statement best reflects your worldview?", //29
+                 choices: {
+                    A: ["People largely shape their own outcomes"],
+                    B: ["Society largely determines outcomes"],
+                    C: ["Both personal effort and social conditions matter equally"],
+                    D: ["Success is mostly luck"]
+                },
+                type: "multiple-choice"
             },{
-                
+               text: "What habits or behaviours most commonly prevent people from achieving their goals?", //30
+               type: "open-ended" 
             }
+        
         ];
 
         this.currentIndex = 0;
@@ -697,7 +766,7 @@ class WorkepicIndex {
     
     Formatting Requirements:
     - Use proper markdown headers (##) for each section
-    - Bold important terms like "work ethic" or "productivity"
+    - Bold important terms like "work ethic","ambition" or "productivity"
     - Include specific examples from responses when possible
     - Tone of report should address the individual test taker in third party (using words like "The candidate displays") not generalise and all spelling should be in UK English.
     

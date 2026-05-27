@@ -166,7 +166,7 @@ exports.handler = async (event) => {
             const prompt = `
             You are an expert evaluator.
                 Evaluate each response based on:
-                - Emotional intelligence
+                - Ambition
                 - Accountability
                 - Consistency
                 - Growth mindset
