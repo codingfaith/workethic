@@ -41,18 +41,18 @@ textarea {
     height: 100px;
 }
 .contact-container span {
-    color: #8551b6;
+    color: #1a2a54;
     text-align: center;
 }
 button {
     border: none;
     color: #ffffff;
     cursor: pointer;
-    background: #8551b6;
+    background: #1a2a54;
     box-shadow: 1px 1px 1px 1px #ccc;   
 }
 button:hover {
-    background: #fbb440;
+    background: #23718e;
 }
 .hidden {
   position: absolute;

@@ -5,7 +5,7 @@
 }
 #auth-container {
     margin: auto;
-    color: #8551b6;
+    color: #1b234d;
     margin-top: 15px;
     max-width: 400px;
     border-radius: 10px;
@@ -47,7 +47,7 @@ input {
     color: #ffffff;
     font-weight: 500;
     border-radius: 10px;
-    background: #8551b6;
+    background: #1a2a54;
     box-shadow: 1px 1px 1px 1px gainsboro;   
 }
 #show-login,
@@ -56,7 +56,7 @@ input {
     border: none;
     cursor: pointer;
     font-size: large;
-    color:  #8551b6;
+    color:  #23718e;
     font-family: inherit;
     background: transparent;
     text-decoration: underline;
@@ -65,15 +65,15 @@ input {
 #signup-btn:hover {
     border: none;
     color: #ffffff;
-    background: #fbb440;
+    background: #23718e;
 }
- #show-login:hover,
+#show-login:hover,
 #show-signup:hover {
-    color: #fbb440;
+    color: #23718e;
 }
 #auth-error {
     width: 100%;
-    color: orange;
+    color: red;
     margin-top: 10px;
     text-align: center;
     font-size: smaller;
