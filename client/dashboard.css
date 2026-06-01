@@ -202,7 +202,7 @@
   height: 260px;
   overflow-y: scroll;
   margin-bottom: 10px;
-  background: #1b234d;
+  background: #010739;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   box-shadow: 1px 1px 1px 1px #000000;
@@ -285,7 +285,7 @@
   background-color: #9ecae1;
 }
 .landing-container {
-    background: #1b234d;
+    background: #010739;
 }
 @media screen and (max-width: 400px) {
    .spanContainer {
