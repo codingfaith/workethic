@@ -17,7 +17,9 @@
 }
 
 #contact-landing-container {
-   background-image: url("signin-background.png");
+    background-color: #010739;
+    background-position: center;
+    background-image: url("signin-background.png");
 }
 .contact-container {
     margin: auto;
