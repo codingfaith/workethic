@@ -9,7 +9,7 @@ class WorkepicIndex {
     constructor() {
         this.questions = [
             {
-                text: "Where would you ideally like to position yourself economically or professionally relative to others in your society?", //1
+                text: "Regardless of your current position, where do you aim to be economically or professionally relative to others in your society?", //1
                 choices: {
                     A: ["Top 1%"],
                     B: ["Top 10%"],
