@@ -434,7 +434,7 @@ function displayAdminData(adminData) {
         </div> 
         ${formatText(attempt.report)}
         <div class="ubuntex-classification">
-          <p><strong>Workepic Classification Breakdown</strong></p>
+          <span><strong>Workepic Classification Breakdown</strong></span><br>
           <div class="spanContainer">
             <span>Level 6 : Scores under 65.50%</span>
             <span>Level 5 : Scores 65.50% to 72.49%</span>
