@@ -423,6 +423,24 @@ function setupEventListeners() {
   document.getElementById('signup-btn')?.addEventListener('click', handleSignup);
   document.getElementById('logout-btn')?.addEventListener('click', handleLogout);
 }
+document.querySelectorAll('.toggle-password').forEach(button => {
+  button.addEventListener('click', () => {
+    const input = document.getElementById(button.dataset.target);
+
+    const eyeOpen = button.querySelector('.eye-open');
+    const eyeClosed = button.querySelector('.eye-closed');
+
+    if (input.type === 'password') {
+        input.type = 'text';
+        eyeOpen.style.display = 'none';
+        eyeClosed.style.display = 'block';
+    } else {
+        input.type = 'password';
+        eyeOpen.style.display = 'block';
+        eyeClosed.style.display = 'none';
+    }
+  });
+});
 
 // Cleanup
 window.addEventListener('beforeunload', () => {

@@ -79,6 +79,35 @@ input {
     font-size: smaller;
     font-style: italic;
 }
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.password-wrapper input {
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 45px;
+}
+
+.toggle-password {
+    top: 50%;
+    right: 12px;
+    padding: 0;
+    border: none;
+    color: #666;
+    display: flex;
+    cursor: pointer;
+    position: absolute;
+    align-items: center;
+    background: transparent;
+    justify-content: center;
+    transform: translateY(-50%);
+}
+
+.toggle-password:hover {
+    color: #333;
+}
 /* media queries */
 @media screen and (max-width: 400px) {
     #show-login,
