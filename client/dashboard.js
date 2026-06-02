@@ -443,7 +443,7 @@ function displayAdminData(adminData) {
             <span>Level 2 : Scores 83.50% to 87.49%</span>
             <span>Level 1 : Scores 87.50% and above</span>
           </div>
-          <p>My effort builds our collective excellence!</p>  
+          <span>My effort builds our collective excellence!</span>
         </div>
         <button class="downloadReportBtn">Download Report</button>
       </div><br><br>

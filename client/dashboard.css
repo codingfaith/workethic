@@ -228,6 +228,9 @@
 .ubuntex-classification span {
   display: block;
 }
+.ubuntex-classification span {
+  text-align: center;
+}
 .spanContainer {
   margin: auto;
   width: fit-content;
