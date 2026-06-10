@@ -26,7 +26,7 @@ const makeOpenAIRequest = async (
                 }
             ],
             temperature: isReport ? 0.5 : 0.2,
-            max_tokens: isReport ? 700 : 300
+            max_tokens: isReport ? 1500 : 300
         };
 
         // Force valid JSON responses for scoring
@@ -166,10 +166,11 @@ exports.handler = async (event) => {
             const prompt = `
             You are an expert evaluator.
                 Evaluate each response based on:
+                - Competency
                 - Ambition
                 - Accountability
                 - Consistency
-                - Growth mindset
+                - Growth mindset and effectiveness
                 - Work ethic principles
 
                 Instructions:
