@@ -283,7 +283,7 @@ class WorkepicIndex {
     }
 
     finishScoring(btn) {
-        btn.textContent = this.currentIndex === this.questions.length 
+        btn.textContent = this.currentIndex === this.questions.length - 1
             ? "Submit and See Results" 
             : "Next";
         btn.disabled = false;
@@ -296,7 +296,7 @@ class WorkepicIndex {
     const charCounter = document.getElementById("char-counter");
 
 
-    if (this.currentIndex > this.questions.length) {
+    if (this.currentIndex >= this.questions.length) {
         this.calculateScore();
         return;
     }
@@ -443,7 +443,7 @@ class WorkepicIndex {
             : "Next";
 
         // Disable button after submission click
-        if (this.currentIndex === totalQuestions - 1) {
+        if (this.currentIndex === (totalQuestions - 1)) {
             nextBtn.addEventListener("click", () => {
                 nextBtn.disabled = true;
                 nextBtn.textContent = "Submitting...";
