@@ -446,7 +446,9 @@ class WorkepicIndex {
         if (this.currentIndex === (totalQuestions - 1)) {
             nextBtn.addEventListener("click", () => {
                 nextBtn.disabled = true;
-                nextBtn.textContent = "Submitting...";
+                nextBtn.innerHTML = `
+                <span class="spinner"></span>
+                Submitting...`;
             }, { once: true });
         }
         
