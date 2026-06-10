@@ -728,6 +728,10 @@ class WorkepicIndex {
     ## Strengths
     - List 2-3 specific strengths with examples from responses
     - Mention which work ethic principles are strongest
+
+    ## Competency Assessment
+    - Evaluate the individual's competency level based on their responses and predict how they would perform in various work scenarios
+    - Highlight any areas of exceptional skill or knowledge demonstrated in the answers
     
     ## Growth Areas  
     - List 2-3 specific opportunities for improvement
