@@ -419,13 +419,11 @@ class WorkepicIndex {
             : "Next";
 
         // Disable button after submission click
-        if (this.currentIndex === (totalQuestions - 1)) {
-            nextBtn.addEventListener("click", () => {
-                nextBtn.disabled = true;
-                nextBtn.innerHTML = `
-                <span class="spinner"></span>
-                Submitting...`;
-            }, { once: true });
+        if (this.currentIndex === (totalQuestions - 1)) { 
+            nextBtn.addEventListener("click", () => { 
+            nextBtn.disabled = true;
+            nextBtn.textContent = "Submitting..."; 
+            },{ once: true }); 
         }
         
         window.scrollTo({ top: 0, behavior: 'smooth' });
