@@ -25,7 +25,7 @@ const makeOpenAIRequest = async (
                     content: prompt
                 }
             ],
-            temperature: isReport ? 0.5 : 0.2,
+            temperature: isReport ? 0.7 : 0.3,
             max_tokens: isReport ? 1500 : 300
         };
 

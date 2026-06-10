@@ -33,17 +33,7 @@ class WorkepicIndex {
                 text: "What have you done to back up that ambition?", //5
                 type: "open-ended"
             },{
-                text: "Do you believe most people can significantly improve their position in life through effort and discipline?", //6
-                choices: {
-                    A: ["Strongly agree"],
-                    B: ["Agree"],
-                    C: ["Neutral"],
-                    D: ["Disagree"],
-                    E: ["Strongly disagree"]
-                },
-                type: "multiple-choice"
-            },{
-                text: "How many years are you prepared to work consistently in pursuit of your major life goals?", //7
+                text: "How many years are you prepared to work consistently in pursuit of your major life goals?", //6
                 choices: {
                     A: ["Less than 1 year"],
                     B: ["1-3 years"],
@@ -53,13 +43,13 @@ class WorkepicIndex {
                 },
                 type: "multiple-choice"
             },{
-                text: "With the years that have already passed, do you consider yourself to be successful and why?", //8
+                text: "With the years that have already passed, do you consider yourself to be successful and why?", //7
                 type: "open-ended"
             },{
-                text: "Would you continue pursuing a goal if progress is slower than expected and why?", //9
+                text: "Would you continue pursuing a goal if progress is slower than expected and why?", //8
                 type: "open-ended"
             },{
-                text: "In your field of work globally, where would you position your current capability, skill and talent?", //10
+                text: "In your field of work globally, where would you position your current capability, skill and talent?", //9
                 choices: {
                     A: ["Top 1%"],
                     B: ["Top 10%"],
@@ -69,10 +59,10 @@ class WorkepicIndex {
                 },
                 type: "multiple-choice"
             },{
-                text: "What have you done to achieve that position in your particular field?", //11
+                text: "What have you done to achieve that position in your particular field?", //10
                 type: "open-ended"
             },{
-                text: "Which statement best reflects your thinking?", //12
+                text: "Which statement best reflects your thinking?", //11
                 choices: {
                     A: ["Success usually takes a long time"],
                     B: ["Success should come quickly if one is talented"],
@@ -82,7 +72,7 @@ class WorkepicIndex {
                 },
                 type: "multiple-choice"
             },{
-                text: "Which best describes how you see yourself in professional or organisational settings?", //13
+                text: "Which best describes how you see yourself in professional or organisational settings?", //12
                 choices: {
                     A: ["I mainly respond to instructions and requests"],
                     B: ["I sometimes initiate ideas or improvements"],
@@ -91,16 +81,16 @@ class WorkepicIndex {
                 },
                 type: "multiple-choice"
             },{
-                text: "Can you provide examples where you initiated something without being instructed to do so?", //14
+                text: "Can you provide examples where you initiated something without being instructed to do so?", //13
                 type: "open-ended"
             },{
-                text: "Are you comfortable taking responsibility for difficult outcomes and why?", //15
+                text: "Are you comfortable taking responsibility for difficult outcomes and why?", //14
                 type: "open-ended"
             },{
-                text: " What does hard work mean to you?", //16
+                text: " What does hard work mean to you?", //15
                 type: "open-ended"
             },{ 
-                text: "Which statement do you agree with most?", //17
+                text: "Which statement do you agree with most?", //16
                 choices: {
                     A: ["Smart work is more important than hard work"],
                     B: ["Hard work is more important than smart work"],
@@ -109,10 +99,10 @@ class WorkepicIndex {
                 },
                 type: "multiple-choice"
             },{ 
-                text: "Would you willingly sacrifice leisure, comfort, or entertainment for long-term success and why?", //18
+                text: "Would you willingly sacrifice leisure, comfort, or entertainment for long-term success and why?", //17
                 type: "open-ended"
             },{ 
-                text: "I track my own progress without being asked", //19
+                text: "I track my own progress without being asked", //18
                 choices: {
                     A: ["Never "],
                     B: ["Rarely"],
@@ -121,21 +111,21 @@ class WorkepicIndex {
                 },
                 type: "multiple-choice"
             },{ 
-                text: "If you had limited time, which would you prioritize?", //20
+                text: "If you had limited time, which would you prioritize?", //19
                 choices: {
                     A: ["Completing all tasks, even if some are imperfect"],
                     B: ["Ensuring fewer tasks are completed at a high standard"]
                 },
                 type: "multiple-choice"
             },{
-                text: "When facing a difficult task, you are more likely to:", //21
+                text: "When facing a difficult task, you are more likely to:", //20
                 choices: {
                     A: ["Break it into smaller steps and keep going "],
                     B: ["Pause and return later with a fresh perspective"]
                 },
                 type: "multiple-choice"
             },{
-                text: "When facing setbacks, what do you typically do?", //22
+                text: "When facing setbacks, what do you typically do?", //21
                 choices: {
                     A: ["Withdraw temporarily"],
                     B: ["Wait for support"],
@@ -144,55 +134,41 @@ class WorkepicIndex {
                 },
                 type: "multiple-choice"
             },{
-                text: "If a deadline seems unrealistic:", //23
-                choices: {
-                    A: ["Start immediately and do what's possible"],
-                    B: ["Reassess and adjust expectations first"]
-                },
-                type: "multiple-choice"
-            },{
-                text: "When a project doesn't go as planned, my first thought is:", //24
-                choices: {
-                    A: ["What could I have done differently"],
-                    B: ["What factors affected the outcome"]
-                },
-                type: "multiple-choice"
-            },{
-                text: "When working in a team, I usually:", //25
+                text: "When working in a team, I usually:", //22
                 choices: {
                     A: ["Focus on my responsibilities"],
                     B: ["Stay aware of how others are progressing"]
                 },
                 type: "multiple-choice"
             },{
-                text: "What do you do on days when you don't feel motivated to work?", //26
+                text: "What do you do on days when you don't feel motivated to work?", //23
                 type: "open-ended"
             },{
-                text: "You are given a task with unclear instructions. You:", //27
+                text: "You are given a task with unclear instructions. You:", //24
                 choices: {
                     A: ["Start and figure things out along the way"],
                     B: ["Seek clarification before proceeding"]
                 },
                 type: "multiple-choice"
             },{
-                text: "A teammate is falling behind and it may affect you. You:", //28
+                text: "A teammate is falling behind and it may affect you. You:", //25
                 choices: {
                     A: ["Focus on ensuring your work is done"],
                     B: ["Step in to help or raise the issue"]
                 },
                 type: "multiple-choice"
             },{
-                text: "You finish a task earlier than expected. You:", //29
+                text: "You finish a task earlier than expected. You:", //26
                 choices: {
                     A: ["Move on to the next assigned task"],
                     B: ["Review or improve what you've done"]
                 },
                 type: "multiple-choice"
             },{
-                text: "In your opinion, what should be the MOST important basis for promotion and why?", //30
+                text: "In your opinion, what should be the MOST important basis for promotion and why?", //27
                 type: "open-ended"
             },{
-                 text: "Which statement best reflects your worldview?", //31
+                 text: "Which statement best reflects your worldview?", //28
                  choices: {
                     A: ["People largely shape their own outcomes"],
                     B: ["Society largely determines outcomes"],
@@ -201,10 +177,10 @@ class WorkepicIndex {
                 },
                 type: "multiple-choice"
             },{
-               text: "What habits or behaviours most commonly prevent people from achieving their goals?", //32
+               text: "What habits or behaviours most commonly prevent people from achieving their goals?", //29
                type: "open-ended" 
             },{
-               text: "Would you agree to work extra hours if it was necessary with no additional pay and why?", //33
+               text: "Would you agree to work extra hours if it was necessary with no additional pay and why?", //30
                type: "open-ended" 
             }
 
