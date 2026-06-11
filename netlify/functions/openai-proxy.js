@@ -25,8 +25,8 @@ const makeOpenAIRequest = async (
                     content: prompt
                 }
             ],
-            temperature: isReport ? 0.7 : 0.3,
-            max_tokens: isReport ? 1500 : 300
+            temperature: isReport ? 0.5 : 0.2,
+            max_tokens: isReport ? 1000 : 300
         };
 
         // Force valid JSON responses for scoring
