@@ -706,7 +706,7 @@ class WorkepicIndex {
     - Mention which work ethic principles are strongest
 
     ## Competency Assessment
-    - Evaluate the individual's competency level based on their responses and predict how they would perform in various work scenarios
+    - Evaluate the individual's competency level based on their overall responses (not just how they directly perceive themselves) and predict how they would perform in various work scenarios
     - Highlight any areas of exceptional skill or knowledge demonstrated in the answers
     
     ## Growth Areas  
